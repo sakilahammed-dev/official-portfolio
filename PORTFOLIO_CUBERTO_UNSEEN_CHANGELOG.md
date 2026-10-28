@@ -149,7 +149,7 @@
 
 ---
 
-## 3. Server Ports Reference
-- **Official Portfolio (Next.js 15):** `http://localhost:3000` (কমান্ড: `npm run dev`)
+## 3. GitHub & Server Reference
+- **GitHub Repository:** [`https://github.com/sakilahammed-dev/official-portfolio`](https://github.com/sakilahammed-dev/official-portfolio)
+- **Local Dev Server:** `http://localhost:3000` (কমান্ড: `npm run dev`)
 - **Direct Live Inbox Dashboard:** `http://localhost:3000/inbox`
-- **New Portfolio (HTML/CSS):** `http://localhost:5500`
