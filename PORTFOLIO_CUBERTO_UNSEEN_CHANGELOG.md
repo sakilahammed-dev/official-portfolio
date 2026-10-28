@@ -151,6 +151,7 @@
 
 ## 3. GitHub & Cloudflare Deployment Reference
 - **GitHub Repository:** [`https://github.com/sakilahammed-dev/official-portfolio`](https://github.com/sakilahammed-dev/official-portfolio)
-- **Cloudflare Worker:** `official-portfolio` (`@opennextjs/cloudflare` + `wrangler.jsonc`)
+- **Live Official Production URL:** [`https://ai.sakilahammed.workers.dev`](https://ai.sakilahammed.workers.dev)
+- **Cloudflare Worker:** `ai` (Subdomain: `sakilahammed.workers.dev`, Engine: `@opennextjs/cloudflare` + `wrangler.jsonc`)
 - **Local Dev Server:** `http://localhost:3000` (কমান্ড: `npm run dev`)
 - **Direct Live Inbox Dashboard:** `http://localhost:3000/inbox`
