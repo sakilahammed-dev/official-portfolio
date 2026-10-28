@@ -1,5 +1,5 @@
 {
-  "name": "sakil-ahammed-official-portfolio",
+  "name": "official-portfolio",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -23,6 +23,7 @@
     "three": "^0.186.1"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.20.14",
     "@types/node": "^22.13.4",
     "@types/nodemailer": "^8.0.2",
     "@types/react": "^19.0.10",
