@@ -115,6 +115,15 @@ export default function Navbar({ className = "" }: NavbarProps) {
                       />
                     )}
 
+                    {/* ACTIVE SELECTED GLASS CAPSULE (Shown when selected & not hovered) */}
+                    {isActive && !isHovered && (
+                      <motion.span
+                        layoutId="cuberto-active-pill"
+                        transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                        className="absolute inset-0 rounded-full bg-white/15 border border-white/25 backdrop-blur-md shadow-[0_2px_14px_rgba(255,255,255,0.12)] z-0 pointer-events-none"
+                      />
+                    )}
+
                     {/* Cuberto Signature Rolling Wave Text (One rolls up and out, another rolls in) */}
                     <span
                       className={`relative z-10 inline-block overflow-hidden h-[22px] leading-[22px] transition-colors duration-200 ${
@@ -139,15 +148,6 @@ export default function Navbar({ className = "" }: NavbarProps) {
                         {item.label}
                       </span>
                     </span>
-
-                    {/* THE SELECTED "FUTA" (INDICATOR DOT) IN VIBRANT NEON PINK (#FF0055) */}
-                    {isActive && (
-                      <motion.span
-                        layoutId="cuberto-active-pink-dot"
-                        transition={{ type: "spring", stiffness: 450, damping: 30 }}
-                        className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#FF0055] shadow-[0_0_14px_#FF0055] z-20 pointer-events-none"
-                      />
-                    )}
                   </a>
                 );
               })}
@@ -159,7 +159,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
               onClick={() => setActiveNav("contact")}
               className={`group relative inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer select-none overflow-hidden ${
                 activeNav === "contact"
-                  ? "bg-[#FF0055] text-white shadow-[0_0_25px_rgba(255,0,85,0.5)]"
+                  ? "bg-white text-black shadow-[0_0_25px_rgba(255,255,255,0.5)] ring-2 ring-white/40"
                   : "bg-white text-black hover:bg-white/95 hover:shadow-[0_0_25px_rgba(255,255,255,0.35)]"
               }`}
             >
@@ -174,15 +174,6 @@ export default function Navbar({ className = "" }: NavbarProps) {
                   Contacts
                 </span>
               </span>
-
-              {/* Pink dot if Contacts is selected */}
-              {activeNav === "contact" && (
-                <motion.span
-                  layoutId="cuberto-active-pink-dot"
-                  transition={{ type: "spring", stiffness: 450, damping: 30 }}
-                  className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-white shadow-[0_0_10px_white] z-20 pointer-events-none"
-                />
-              )}
             </a>
           </div>
 
@@ -190,9 +181,9 @@ export default function Navbar({ className = "" }: NavbarProps) {
           <div className="lg:hidden flex items-center gap-3">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-mono uppercase tracking-wider transition-all border border-white/5 active:scale-95 cursor-pointer"
+              className="flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-mono uppercase tracking-wider transition-all border border-white/10 active:scale-95 cursor-pointer shadow-sm"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF0055] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shadow-[0_0_8px_white]" />
               <span>Menu</span>
             </button>
           </div>
@@ -256,22 +247,22 @@ export default function Navbar({ className = "" }: NavbarProps) {
                       transition={{ delay: idx * 0.04, duration: 0.3 }}
                       className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold tracking-wider uppercase transition-all duration-200 cursor-pointer ${
                         isActive
-                          ? "bg-[#23262D] text-[#FF0055] border border-[#FF0055]/30 shadow-inner"
+                          ? "bg-white/15 text-white border border-white/25 shadow-lg shadow-white/5 font-bold"
                           : "text-white/80 hover:text-white hover:bg-white/5"
                       }`}
                     >
                       <div className="flex items-center gap-4">
                         <Icon
                           className={`w-5 h-5 transition-colors ${
-                            isActive ? "text-[#FF0055]" : "text-white/50"
+                            isActive ? "text-white" : "text-white/50"
                           }`}
                         />
                         <span>{item.label}</span>
                       </div>
 
-                      {/* Pink Active Indicator on Mobile */}
+                      {/* Active Indicator on Mobile */}
                       {isActive && (
-                        <span className="w-2 h-2 rounded-full bg-[#FF0055] shadow-[0_0_8px_#FF0055]" />
+                        <span className="w-5 h-[2px] rounded-full bg-white shadow-[0_0_8px_white]" />
                       )}
                     </motion.a>
                   );

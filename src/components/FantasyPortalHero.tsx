@@ -166,7 +166,7 @@ export default function FantasyPortalHero() {
         </AnimatePresence>
 
         {/* Top Spacer maintaining vertical alignment with fixed Cuberto Navbar */}
-        <div className="h-20 sm:h-28 w-full pointer-events-none select-none" aria-hidden="true" />
+        <div className="h-12 sm:h-28 w-full pointer-events-none select-none" aria-hidden="true" />
 
         {/* ========================================================================= */}
         {/* 2. SUBTLE GIANT BACKGROUND TYPOGRAPHY: 'SAKIL AHAMMED'                    */}
@@ -179,7 +179,7 @@ export default function FantasyPortalHero() {
               y: mousePos.y * -10,
             }}
             transition={{ type: "spring", stiffness: 100, damping: 25 }}
-            className="w-full text-center tracking-tight sm:tracking-tighter uppercase font-black select-none whitespace-nowrap"
+            className="w-full text-center tracking-tight sm:tracking-tighter uppercase font-black select-none whitespace-nowrap -translate-y-6 sm:translate-y-0"
           >
             <span className="block text-[8.5vw] sm:text-[9.8vw] lg:text-[10.5vw] leading-none font-black text-transparent bg-clip-text bg-gradient-to-b from-white/[0.22] via-white/[0.10] to-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.06)]">
               SAKIL AHAMMED
@@ -221,8 +221,8 @@ export default function FantasyPortalHero() {
               />
             </div>
 
-            {/* Central Stage: Pure Transparent Cutout of Sakil Grounded at Bottom */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-xl sm:max-w-2xl h-[78vh] sm:h-[84vh] max-h-[820px] flex items-end justify-center z-20 pointer-events-none">
+            {/* Central Stage: Pure Transparent Cutout of Sakil Elevated Comfortably on Mobile */}
+            <div className="absolute bottom-2 sm:bottom-0 left-1/2 -translate-x-1/2 w-full max-w-xl sm:max-w-2xl h-[82vh] sm:h-[84vh] max-h-[850px] flex items-end justify-center z-20 pointer-events-none -translate-y-6 sm:translate-y-0 scale-[1.04] sm:scale-100 origin-bottom transition-transform duration-300">
               <motion.img
                 initial={{ opacity: 0, scale: 0.88, y: 35 }}
                 animate={{
@@ -236,8 +236,8 @@ export default function FantasyPortalHero() {
                 alt="Sakil Ahammed • Full-Stack AI Automation & Autonomous Operations Architect"
                 className="relative z-20 h-full w-auto object-contain object-bottom drop-shadow-[0_25px_60px_rgba(0,0,0,0.95)]"
                 style={{
-                  maskImage: "linear-gradient(to bottom, black 92%, transparent 100%)",
-                  WebkitMaskImage: "linear-gradient(to bottom, black 92%, transparent 100%)",
+                  maskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
+                  WebkitMaskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
                 }}
               />
             </div>

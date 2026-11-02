@@ -4,6 +4,12 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
+import AutonomousAiVisual from "@/components/AutonomousAiVisual";
+import WebDevVisual from "@/components/WebDevVisual";
+import MobileAppVisual from "@/components/MobileAppVisual";
+import UxResearchVisual from "@/components/UxResearchVisual";
+import ReverseEngineeringVisual from "@/components/ReverseEngineeringVisual";
+import VideoSolutionsVisual from "@/components/VideoSolutionsVisual";
 
 interface ServiceItem {
   id: string;
@@ -136,8 +142,26 @@ export default function FeaturesSection() {
 
         // 1. Text color shifts to white
         tl.to(card, { color: "#ffffff", duration: 1 }, 0);
-        // 2. Background fills to pure black #000
-        if (fill) tl.to(fill, { backgroundColor: "#000000", duration: 1 }, 0);
+        // 2. Background fills (custom rich tones for cards 1-6)
+        if (fill) {
+          const targetBg =
+            servicesData[idx]?.id === "web-development"
+              ? "#0b1a32"
+              : servicesData[idx]?.id === "mobile-apps"
+              ? "#0a2116"
+              : servicesData[idx]?.id === "ui-ux-design"
+              ? "#130919"
+              : servicesData[idx]?.id === "reverse-engineering"
+              ? "#140a04"
+              : servicesData[idx]?.id === "video-solutions"
+              ? "#140508"
+              : "#000000";
+          tl.to(fill, { backgroundColor: targetBg, duration: 1 }, 0);
+        }
+        const colorOverlay = card.querySelector(".item__color_overlay");
+        if (colorOverlay) {
+          tl.to(colorOverlay, { opacity: 1, duration: 1 }, 0);
+        }
         // 3. WebP Artwork fades in with ease: none
         if (bg) tl.to(bg, { opacity: 1, duration: 1, ease: "none" }, 0);
         // 4. Accordion grid-template-rows unrolls from 0fr to 1fr
@@ -183,12 +207,13 @@ export default function FeaturesSection() {
       const cardElements = cardsRef.current.filter(Boolean) as HTMLDivElement[];
       const cleanupFns: (() => void)[] = [];
 
-      cardElements.forEach((card) => {
+      cardElements.forEach((card, idx) => {
         const fill = card.querySelector(".item__fill") as HTMLDivElement;
         const bg = card.querySelector(".item__bg") as HTMLDivElement;
         const content = card.querySelector(".item__content") as HTMLDivElement;
         const accordion = card.querySelector(".item__accordion") as HTMLDivElement;
         const num = card.querySelector(".item__num") as HTMLDivElement;
+        const colorOverlay = card.querySelector(".item__color_overlay") as HTMLDivElement;
 
         const handleClick = () => {
           const isActive = card.classList.contains("-active");
@@ -196,6 +221,7 @@ export default function FeaturesSection() {
             card.classList.remove("-active");
             card.style.color = "#000000";
             if (fill) fill.style.backgroundColor = "#eeeeee";
+            if (colorOverlay) colorOverlay.style.opacity = "0";
             if (bg) bg.style.opacity = "0";
             if (accordion) accordion.style.gridTemplateRows = "0fr";
             if (content) content.style.opacity = "0";
@@ -203,7 +229,20 @@ export default function FeaturesSection() {
           } else {
             card.classList.add("-active");
             card.style.color = "#ffffff";
-            if (fill) fill.style.backgroundColor = "#000000";
+            const targetBg =
+              servicesData[idx]?.id === "web-development"
+                ? "#0b1a32"
+                : servicesData[idx]?.id === "mobile-apps"
+                ? "#0a2116"
+                : servicesData[idx]?.id === "ui-ux-design"
+                ? "#130919"
+                : servicesData[idx]?.id === "reverse-engineering"
+                ? "#140a04"
+                : servicesData[idx]?.id === "video-solutions"
+                ? "#140508"
+                : "#000000";
+            if (fill) fill.style.backgroundColor = targetBg;
+            if (colorOverlay) colorOverlay.style.opacity = "1";
             if (bg) bg.style.opacity = "1";
             if (accordion) accordion.style.gridTemplateRows = "1fr";
             if (content) content.style.opacity = "1";
@@ -264,27 +303,214 @@ export default function FeaturesSection() {
                     style={{ backgroundColor: isFirst ? "#000000" : "#eeeeee" }}
                   />
 
-                  {/* Cuberto High-Res WebP Artwork (starts opacity 0, scrubs to 1) */}
+                  {/* Card 01 Custom Bespoke Obsidian & Muted Aubergine Overlay */}
+                  {item.id === "autonomous-ai" && (
+                    <div
+                      className="item__color_overlay_ai absolute inset-0 rounded-[inherit] pointer-events-none overflow-hidden"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 85% 25%, rgba(168, 85, 247, 0.18) 0%, transparent 55%), radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.14) 0%, transparent 60%), linear-gradient(135deg, #0c0814 0%, #150d22 40%, #1e1330 70%, #09060f 100%)",
+                        border: "1px solid rgba(192, 132, 252, 0.2)",
+                        boxShadow: "inset 0 1px 1px rgba(255, 255, 255, 0.12), 0 25px 60px rgba(12, 8, 20, 0.5)",
+                      }}
+                    >
+                      {/* Subtle Architectural Grid */}
+                      <div
+                        className="absolute inset-0 opacity-10 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px)",
+                          backgroundSize: "32px 32px",
+                        }}
+                      />
+                    </div>
+                  )}
+
+                  {/* Card 02 Custom Bespoke Midnight Prussian Overlay */}
+                  {item.id === "web-development" && (
+                    <div
+                      className="item__color_overlay absolute inset-0 rounded-[inherit] pointer-events-none transition-opacity duration-300 overflow-hidden"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 85% 25%, rgba(56, 189, 248, 0.18) 0%, transparent 55%), radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.15) 0%, transparent 60%), linear-gradient(135deg, #070e1b 0%, #0b1a32 40%, #10274a 70%, #050a14 100%)",
+                        border: "1px solid rgba(56, 189, 248, 0.2)",
+                        boxShadow: "inset 0 1px 1px rgba(255, 255, 255, 0.12), 0 25px 60px rgba(7, 14, 27, 0.5)",
+                        opacity: 0,
+                      }}
+                    >
+                      {/* Subtle Architectural Grid */}
+                      <div
+                        className="absolute inset-0 opacity-10 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px)",
+                          backgroundSize: "32px 32px",
+                        }}
+                      />
+                    </div>
+                  )}
+
+                  {/* Card 03 Custom Bespoke Deep Mineral Cypress Overlay */}
+                  {item.id === "mobile-apps" && (
+                    <div
+                      className="item__color_overlay absolute inset-0 rounded-[inherit] pointer-events-none transition-opacity duration-300 overflow-hidden"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 85% 25%, rgba(16, 185, 129, 0.18) 0%, transparent 55%), radial-gradient(circle at 20% 80%, rgba(20, 184, 166, 0.15) 0%, transparent 60%), linear-gradient(135deg, #05120c 0%, #0a2116 40%, #113624 70%, #040d08 100%)",
+                        border: "1px solid rgba(16, 185, 129, 0.2)",
+                        boxShadow: "inset 0 1px 1px rgba(255, 255, 255, 0.12), 0 25px 60px rgba(5, 18, 12, 0.5)",
+                        opacity: 0,
+                      }}
+                    >
+                      {/* Subtle Architectural Grid */}
+                      <div
+                        className="absolute inset-0 opacity-10 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.08) 1px, transparent 1px)",
+                          backgroundSize: "32px 32px",
+                        }}
+                      />
+                    </div>
+                  )}
+
+                  {/* Card 04 Custom Bespoke Deep Warm Plum Overlay */}
+                  {item.id === "ui-ux-design" && (
+                    <div
+                      className="item__color_overlay absolute inset-0 rounded-[inherit] pointer-events-none transition-opacity duration-300 overflow-hidden"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 85% 25%, rgba(216, 180, 254, 0.18) 0%, transparent 55%), radial-gradient(circle at 20% 80%, rgba(244, 114, 182, 0.15) 0%, transparent 60%), linear-gradient(135deg, #0e0714 0%, #15091e 40%, #220e30 70%, #0a040e 100%)",
+                        border: "1px solid rgba(216, 180, 254, 0.2)",
+                        boxShadow: "inset 0 1px 1px rgba(255, 255, 255, 0.12), 0 25px 60px rgba(19, 9, 25, 0.5)",
+                        opacity: 0,
+                      }}
+                    >
+                      {/* Subtle Architectural Grid */}
+                      <div
+                        className="absolute inset-0 opacity-10 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(rgba(240, 171, 252, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(240, 171, 252, 0.08) 1px, transparent 1px)",
+                          backgroundSize: "32px 32px",
+                        }}
+                      />
+                    </div>
+                  )}
+
+                  {/* Card 05 Custom Bespoke Deep Vintage Amber Overlay */}
+                  {item.id === "reverse-engineering" && (
+                    <div
+                      className="item__color_overlay absolute inset-0 rounded-[inherit] pointer-events-none transition-opacity duration-300 overflow-hidden"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 85% 25%, rgba(251, 191, 36, 0.18) 0%, transparent 55%), radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.15) 0%, transparent 60%), linear-gradient(135deg, #100803 0%, #1c0e05 40%, #2b1608 70%, #0a0502 100%)",
+                        border: "1px solid rgba(251, 191, 36, 0.2)",
+                        boxShadow: "inset 0 1px 1px rgba(255, 255, 255, 0.12), 0 25px 60px rgba(20, 10, 4, 0.5)",
+                        opacity: 0,
+                      }}
+                    >
+                      {/* Subtle Architectural Grid */}
+                      <div
+                        className="absolute inset-0 opacity-10 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(rgba(251, 191, 36, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(251, 191, 36, 0.08) 1px, transparent 1px)",
+                          backgroundSize: "32px 32px",
+                        }}
+                      />
+                    </div>
+                  )}
+
+                  {/* Card 06 Custom Bespoke Deep Velvet Rose Overlay */}
+                  {item.id === "video-solutions" && (
+                    <div
+                      className="item__color_overlay absolute inset-0 rounded-[inherit] pointer-events-none transition-opacity duration-300 overflow-hidden"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 85% 25%, rgba(251, 113, 133, 0.18) 0%, transparent 55%), radial-gradient(circle at 20% 80%, rgba(244, 63, 94, 0.15) 0%, transparent 60%), linear-gradient(135deg, #100407 0%, #1c060d 40%, #2c0915 70%, #0a0204 100%)",
+                        border: "1px solid rgba(251, 113, 133, 0.2)",
+                        boxShadow: "inset 0 1px 1px rgba(255, 255, 255, 0.12), 0 25px 60px rgba(20, 5, 8, 0.5)",
+                        opacity: 0,
+                      }}
+                    >
+                      {/* Subtle Architectural Grid */}
+                      <div
+                        className="absolute inset-0 opacity-10 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(rgba(251, 113, 133, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(251, 113, 133, 0.08) 1px, transparent 1px)",
+                          backgroundSize: "32px 32px",
+                        }}
+                      />
+                    </div>
+                  )}
+
+                  {/* Card Visual Artwork: Custom Bespoke Visuals for all cards */}
                   <div
-                    className="item__bg absolute bottom-0 right-0 pointer-events-none select-none max-w-[55%] h-full flex items-end justify-end overflow-hidden"
+                    className="item__bg absolute bottom-0 right-0 pointer-events-none select-none w-full sm:w-[62%] lg:w-[58%] h-full flex items-center justify-end overflow-hidden"
                     style={{
                       opacity: isFirst ? 1 : 0,
-                      mixBlendMode: "lighten",
                     }}
                   >
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="object-contain object-bottom-right max-h-[95%] w-auto"
-                      loading="lazy"
-                    />
+                    {item.id === "autonomous-ai" ? (
+                      <div className="w-full h-full flex items-center justify-end max-sm:opacity-20 max-sm:scale-75 max-sm:translate-x-6">
+                        <AutonomousAiVisual />
+                      </div>
+                    ) : item.id === "web-development" ? (
+                      <div className="w-full h-full flex items-center justify-end max-sm:opacity-20 max-sm:scale-75 max-sm:translate-x-6">
+                        <WebDevVisual />
+                      </div>
+                    ) : item.id === "mobile-apps" ? (
+                      <div className="w-full h-full flex items-center justify-end max-sm:opacity-20 max-sm:scale-75 max-sm:translate-x-6">
+                        <MobileAppVisual />
+                      </div>
+                    ) : item.id === "ui-ux-design" ? (
+                      <div className="w-full h-full flex items-center justify-end max-sm:opacity-20 max-sm:scale-75 max-sm:translate-x-6">
+                        <UxResearchVisual />
+                      </div>
+                    ) : item.id === "reverse-engineering" ? (
+                      <div className="w-full h-full flex items-center justify-end max-sm:opacity-20 max-sm:scale-75 max-sm:translate-x-6">
+                        <ReverseEngineeringVisual />
+                      </div>
+                    ) : item.id === "video-solutions" ? (
+                      <div className="w-full h-full flex items-center justify-end max-sm:opacity-20 max-sm:scale-75 max-sm:translate-x-6">
+                        <VideoSolutionsVisual />
+                      </div>
+                    ) : (
+                      <div
+                        className="w-full h-full flex items-end justify-end"
+                        style={{ mixBlendMode: "lighten" }}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="object-contain object-bottom-right max-h-[95%] w-auto"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
                   </div>
 
                   {/* Card Header: Title on left, Number on right */}
                   <div className="item__head relative z-10 flex flex-col sm:flex-row-reverse sm:items-center justify-between gap-4">
                     <div
-                      className="item__num font-mono text-xl sm:text-2xl font-normal select-none sm:text-right"
-                      style={{ opacity: isFirst ? 0.5 : 0.2 }}
+                      className={`item__num font-mono text-xl sm:text-2xl font-normal select-none sm:text-right ${
+                        item.id === "autonomous-ai"
+                          ? "text-purple-300 drop-shadow-[0_0_8px_rgba(192,132,252,0.3)]"
+                          : item.id === "web-development"
+                          ? "text-sky-300 drop-shadow-[0_0_8px_rgba(56,189,248,0.3)]"
+                          : item.id === "mobile-apps"
+                          ? "text-emerald-300 drop-shadow-[0_0_8px_rgba(16,185,129,0.3)]"
+                          : item.id === "ui-ux-design"
+                          ? "text-fuchsia-300 drop-shadow-[0_0_8px_rgba(240,171,252,0.3)]"
+                          : item.id === "reverse-engineering"
+                          ? "text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]"
+                          : item.id === "video-solutions"
+                          ? "text-rose-300 drop-shadow-[0_0_8px_rgba(251,113,133,0.3)]"
+                          : ""
+                      }`}
+                      style={{ opacity: isFirst ? 0.85 : 0.4 }}
                     >
                       {item.number}
                     </div>
