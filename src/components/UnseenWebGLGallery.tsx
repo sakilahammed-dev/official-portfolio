@@ -196,8 +196,121 @@ const flagshipProjects: ProjectItem[] = [
     }
   },
   {
-    id: "amanat-os",
+    id: "al-muallim-os",
     number: "02",
+    title: "Al-Mu'allim OS (আল-মুয়াল্লিম ওএস)",
+    subtitle: "Enterprise Multi-Tenant Madrasa Management Platform & Shariah Financial OS",
+    category: "Enterprise System & Fintech",
+    description: "Enterprise-grade multi-tenant operating system for Bangladeshi Qawmi, Hifz, and Aliya madrasas with dual-layer RLS isolation, 30-Para Hifz tracking, and Shariah dual-fund accounting.",
+    media: "/images/projects/al_muallim_showcase.png",
+    posterImage: "/images/projects/al_muallim_showcase.png",
+    isVideo: false,
+    filterType: "website",
+    badge: "226/226 Verified Tests",
+    liveUrl: "http://localhost:3002",
+    githubUrl: "https://github.com/sakilahammed-dev/al-muallim-os",
+    details: {
+      tagline: "কওমি, হিফজ ও আলিয়া মাদ্রাসার আধুনিকায়ন ও শরিয়াহ আর্থিক গভর্ন্যান্স",
+      overview: "আল-মুয়াল্লিম ওএস (Al-Mu'allim OS) হলো বাংলাদেশের কওমি, হিফজ ও আলিয়া মাদ্রাসার সামগ্রিক প্রাতিষ্ঠানিক কার্যক্রম পরিচালনার জন্য শাকিল আহাম্মেদ দ্বারা গ্রাউন্ড-আপ থেকে ডিজাইন ও ডেভেলপ করা একটি আধুনিক এন্টারপ্রাইজ মাল্টি-টেন্যান্ট অপারেটিং সিস্টেম। এতে ঐতিহ্যবাহী দ্বীনি শিক্ষার অনুশাসন ও শরিয়াহ মূলনীতি অক্ষুণ্ণ রেখে শিক্ষার্থী ভর্তি, ৩০-পারা হিফজ প্রগ্রেস ট্র্যাকিং, ওটিপি-ভেরিফায়েড গেটপাস টার্মিনাল এবং শরিয়াহসম্মত ডুয়েল-ফান্ড অ্যাকাউন্টিং নিশ্চিত করা হয়েছে।",
+      vision: "দ্বীনি শিক্ষা প্রতিষ্ঠানের শতবর্ষের ঐতিহ্য ও আমানতদারিকে অক্ষুণ্ণ রেখে বিশ্বমানের ক্লাউড আর্কিটেকচার, কঠোর ডেটা আইসোলেশন ও স্বয়ংক্রিয় গভর্নেন্সের সমন্বয়ে আধুনিক মাদ্রাসা ব্যবস্থাপনাকে সর্বোচ্চ মর্যাদায় অধিষ্ঠিত করা।",
+      challenge: "প্রচলিত খাতা-কলমভিত্তিক মাদ্রাসা ব্যবস্থাপনায় সাধারণ তহবিল (আম ফান্ড) ও জাকাত/লিল্লাহ ফান্ডের অর্থ অনিচ্ছাকৃতভাবে মিশ্রিত হয়ে মারাত্মক শরিয়াহ ঝুঁকি তৈরি হয়। এছাড়া আবাসিক শিক্ষার্থীদের ছুটির ক্ষেত্রে অভিভাবকের নিশ্চিত অনুমোদন যাচাইয়ের অভাব, ৩০-পারা হিফজের ধারাবাহিক সবক-আম্মুখতা ট্র্যাকিংয়ের জটিলতা এবং বেফাক ও আলিয়া উভয় বোর্ডের ভিন্ন ভিন্ন গ্রেডিং সিস্টেম সমন্বয়ে ব্যাপক সময় অপচয় ঘটে।",
+      solution: "পোস্টগ্রেএসকিউএল রো-লেভেল সিকিউরিটি (RLS) ও প্রিজমা ওআরএম সমন্বয়ে কঠোর ডুয়েল-লেয়ার মাল্টি-টেন্যান্ট ডেটা আইসোলেশন এনফোর্স করা হয়েছে। জাকাত ও সাধারণ ফান্ডের জন্য অডিটেবল শরিয়াহ ডুয়েল-ফান্ড লেজার, ওটিপি-ভেরিফায়েড ডিজিটাল গেটপাস টার্মিনাল এবং ৩-স্তরীয় হিফজ হিটম্যাপ ইঞ্জিন তৈরি করা হয়েছে—যা জেস্ট ফ্রেমওয়ার্কে ২২৬টি অটোমেটেড টেস্টে শতভাগ উত্তীর্ণ।",
+      metrics: [
+        { label: "Automated Tests", value: "226/226 Passing" },
+        { label: "Data Isolation", value: "Dual PostgreSQL RLS" },
+        { label: "Shariah Accounting", value: "Strict Dual-Fund" },
+        { label: "Hifz Matrix", value: "30-Para Engine" },
+        { label: "Gatepass Security", value: "Server OTP + NID" },
+        { label: "Regulatory Compliance", value: "BANBEIS & PDPA Ready" }
+      ],
+      keyFeatures: [
+        "শরিয়াহ ডুয়েল-ফান্ড ডাবল-এন্ট্রি লেজার (আম ও জাকাত তহবিলের সম্পূর্ণ পৃথকীকরণ)",
+        "৩০-পারা হিফজ ট্র্যাকিং ও দৈনিক প্রগ্রেস হিটম্যাপ (সবক, সবকি ও আম্মুখতা)",
+        "সার্ভার ওটিপি ও অভিভাবক এনআইডি ভেরিফায়েড ডিজিটাল গেটপাস টার্মিনাল",
+        "ডুয়েল-বোর্ড একাডেমিক ইঞ্জিন (বেফাকুল মাদারিসিল আরাবিয়া ও সরকারি আলিয়া গ্রেডিং)",
+        "ডুয়েল-লেয়ার মাল্টি-টেন্যান্ট আইসোলেশন (PostgreSQL RLS + Prisma Middleware)",
+        "ব্যানবেইস (BANBEIS) ও সরকারি পিডিপিএ (PDPA 2026) রেগুলেটরি এক্সপোর্ট কমপ্লায়েন্স",
+        "বিএসটিআই স্ট্যান্ডার্ড এসএমএস ও নোটিফিকেশন ব্যাকগ্রাউন্ড ওয়ার্কার",
+        "অটোমেটেড ডাটাবেজ ব্যাকআপ ও এসএইচএ-২৫৬ ক্রিপ্টোগ্রাফিক ভেরিফিকেশন"
+      ],
+      modules: [
+        {
+          title: "শরিয়াহ ডুয়েল-ফান্ড অ্যাকাউন্টিং ও ডাবল-এন্ট্রি লেজার",
+          subtitle: "Strict Shariah Separation of Aam & Zakat Funds",
+          description: "ইসলামিক শরিয়াহ নীতি অনুযায়ী জাকাত, ফেতরা ও লিল্লাহ ফান্ডের অর্থ কোনোভাবেই সাধারণ প্রাতিষ্ঠানিক ফান্ডে মিশ্রিত হতে পারে না। আল-মুয়াল্লিম ওএস প্রতি ট্রানজ্যাকশনে ডেডিকেটেড ফান্ড ট্যাগিং ও ডাবল-এন্ট্রি বুককিপিং বজায় রাখে।",
+          highlights: [
+            "জাকাত/লিল্লাহ ও সাধারণ (আম) ফান্ডের স্বয়ংক্রিয় পৃথক লেজার",
+            "অডিট-রেডি রসিদ বই ও কিউআর-কোড যুক্ত ডিজিটাল ক্যাশ রসিদ",
+            "মাসিক শরিয়াহ ব্যালেন্স শিট ও ফান্ড ট্র্যাকিং ভাউচার"
+          ]
+        },
+        {
+          title: "৩০-পারা হিফজ ট্র্যাকিং ও হিটম্যাপ ইঞ্জিন",
+          subtitle: "Comprehensive 3-Tier Hifz Progress Matrix",
+          description: "হিফজ শিক্ষার্থীদের দৈনিক অগ্রগতি নিরীক্ষণের জন্য নির্মিত উন্নত ট্র্যাকিং ইঞ্জিন। সবক (দৈনিক নতুন পড়া), সবকি (সাম্প্রতিক পড়া) ও আম্মুখতা (পূর্বের মুখস্থ পারা)-এর ত্রিমাত্রিক মূল্যায়ন।",
+          highlights: [
+            "৩০-পারা ইন্টারঅ্যাক্টিভ ভিজ্যুয়াল হিফজ গ্রিড ও হিটম্যাপ",
+            "পারা ও পৃষ্ঠা ভিত্তিক ভুল ও আটকের (মুতাশাবিহাত) লগিং",
+            "অভিভাবকের ফোনে দৈনিক হিফজ প্রগ্রেস রিপোর্ট এসএমএস"
+          ]
+        },
+        {
+          title: "ওটিপি-ভেরিফায়েড গেটপাস টার্মিনাল ও নিরাপত্তা",
+          subtitle: "Server-Validated Secure Student Departure Flow",
+          description: "আবাসিক শিক্ষার্থীদের মাদ্রাসার বাইরে যাওয়ার ক্ষেত্রে সর্বোচ্চ নিরাপত্তা নিশ্চিতকরণ। অভিভাবকের নিবন্ধিত ফোনে স্বয়ংক্রিয় ওটিপি প্রেরণ ও গেটপাস স্ক্যানিং ছাড়া মাদ্রাসা ত্যাগ অসম্ভব।",
+          highlights: [
+            "সার্ভার-জেনারেটেড টাইম-সেনসিটিভ ওটিপি অথেনটিকেশন",
+            "জরুরি পরিস্থিতিতে অভিভাবক এনআইডি ব্যাকআপ রিকভারি প্রোটোকল",
+            "গেটরক্ষীর জন্য মোবাইল-অপ্টিমাইজড লাইভ ভেরিফিকেশন ইন্টারফেস"
+          ]
+        },
+        {
+          title: "ডুয়েল-বোর্ড একাডেমিক ও পরীক্ষার ফলাফল ইঞ্জিন",
+          subtitle: "Befaqul Madaris & Alia Madrasa Curriculum Unification",
+          description: "বাংলাদেশের কওমি মাদ্রাসা শিক্ষাবোর্ড (বেফাক) এবং সরকারি আলিয়া শিক্ষা অধিদপ্তরের সম্পূর্ণ ভিন্ন ফলাফল প্রণয়ন পদ্ধতিকে একটি একক সমন্বিত সফটওয়্যারে নিয়ে আসা হয়েছে।",
+          highlights: [
+            "বেফাকুল মাদারিসের মুমতাজ, জায়্যিদ জিদ্দান গ্রেডিং স্কেল",
+            "সরকারি আলিয়া জিপিএ গ্রেডিং ও সাবজেক্ট ম্যাপিং",
+            "১-ক্লিকে প্রশংসাপত্র ও বার্ষিক মার্কশিট জেনারেশন"
+          ]
+        },
+        {
+          title: "ডুয়েল-লেয়ার মাল্টি-টেন্যান্ট আইসোলেশন ও ডেটা সুরক্ষা",
+          subtitle: "PostgreSQL Row-Level Security (RLS) + Prisma Layer",
+          description: "প্রতিটি মাদ্রাসার ডেটা শতভাগ বিচ্ছিন্ন ও সুরক্ষিত রাখতে ডেটাবেজ লেভেলে রো-লেভেল সিকিউরিটি এনফোর্স করা হয়েছে, ফলে একটি মাদ্রাসার অ্যাডমিন কখনোই অন্য মাদ্রাসার কোনো তথ্য দেখতে পারে না।",
+          highlights: [
+            "PostgreSQL 16 কার্নেলে নেটিভ RLS এনফোর্সমেন্ট",
+            "Argon2id হাই-সিকিউরিটি পাসওয়ার্ড হ্যাশিং ও সেশন ম্যানেজমেন্ট",
+            "টেন্যান্ট কনটেক্সট প্রিজমা মিডলওয়্যার ইন্টারসেপ্টর"
+          ]
+        },
+        {
+          title: "ব্যানবেইস কমপ্লায়েন্স ও ডিজাস্টার রিকভারি ইঞ্জিন",
+          subtitle: "Regulatory Compliance (PDPA 2026) & SHA-256 Backups",
+          description: "শিক্ষা মন্ত্রণালয়ের ব্যানবেইস (BANBEIS) তথ্যের উপযোগী প্রাতিষ্ঠানিক ডেটা এক্সপোর্ট এবং প্রতিদিনের স্বয়ংক্রিয় ব্যাকআপের ইন্টিগ্রিটি যাচাই করতে ক্রিপ্টোগ্রাফিক হ্যাশিং।",
+          highlights: [
+            "১-ক্লিকে ব্যানবেইস ও সরকারি ফরম্যাটে ডেটা এক্সপোর্ট",
+            "এনক্রিপ্টেড স্বয়ংক্রিয় ব্যাকআপ ও রিস্টোর ভেরিফিকেশন",
+            "২২৬/২২৬ অটোমেটেড টেস্ট কভারেজে পরীক্ষিত নির্ভরযোগ্যতা"
+          ]
+        }
+      ],
+      techStack: [
+        "Next.js 14+ (App Router)",
+        "TypeScript (Strict)",
+        "PostgreSQL 16 (Native RLS)",
+        "Prisma ORM",
+        "Redis 7",
+        "Argon2id Cryptography",
+        "Jest (226 Passing Tests)",
+        "Docker Compose",
+        "Tailwind CSS"
+      ]
+    }
+  },
+  {
+    id: "amanat-os",
+    number: "03",
     title: "Amanat OS",
     subtitle: "Autonomous Business Workflow OS, Immersive AI",
     category: "AI Automation",
@@ -234,7 +347,7 @@ const flagshipProjects: ProjectItem[] = [
   },
   {
     id: "titan-web",
-    number: "03",
+    number: "04",
     title: "Titan Web Platform",
     subtitle: "High-Performance Autonomous Web Engine, 60 FPS",
     category: "Website & Platform",
@@ -270,7 +383,7 @@ const flagshipProjects: ProjectItem[] = [
   },
   {
     id: "hyperframe-motion",
-    number: "04",
+    number: "05",
     title: "Hyperframe Engine",
     subtitle: "Algorithmic Motion Synthesis & Dynamic Media",
     category: "Motion & Film",
@@ -306,7 +419,7 @@ const flagshipProjects: ProjectItem[] = [
   },
   {
     id: "sentinel-analytics",
-    number: "05",
+    number: "06",
     title: "Sentinel Intelligence",
     subtitle: "Predictive Enterprise Operations & Anomaly Resolver",
     category: "Business Problem Solver",
@@ -318,7 +431,7 @@ const flagshipProjects: ProjectItem[] = [
   },
   {
     id: "omni-connect",
-    number: "06",
+    number: "07",
     title: "OmniConnect Mobile",
     subtitle: "Real-Time Distributed Operations Hub, Cross-Platform",
     category: "Mobile App",
@@ -330,7 +443,7 @@ const flagshipProjects: ProjectItem[] = [
   },
   {
     id: "cortex-workflow",
-    number: "07",
+    number: "08",
     title: "Cortex AutoPilot",
     subtitle: "Neural Workflow Orchestrator & Self-Evolving Pipelines",
     category: "AI Automation",
@@ -342,7 +455,7 @@ const flagshipProjects: ProjectItem[] = [
   },
   {
     id: "lumina-visuals",
-    number: "08",
+    number: "09",
     title: "Lumina Brand Identity",
     subtitle: "Dynamic Generative Aesthetics & Motion System",
     category: "Motion & Film",
@@ -354,7 +467,7 @@ const flagshipProjects: ProjectItem[] = [
   },
   {
     id: "apex-commerce",
-    number: "09",
+    number: "10",
     title: "Apex Cloud Infrastructure",
     subtitle: "Scalable Micro-Frontend Architecture, Global CDN",
     category: "Website & Platform",
@@ -366,7 +479,7 @@ const flagshipProjects: ProjectItem[] = [
   },
   {
     id: "clarity-bi",
-    number: "10",
+    number: "11",
     title: "Clarity Decision Engine",
     subtitle: "Executive Strategic Modeling & Scenario Simulator",
     category: "Business Problem Solver",
@@ -378,7 +491,7 @@ const flagshipProjects: ProjectItem[] = [
   },
   {
     id: "neural-voice",
-    number: "11",
+    number: "12",
     title: "Aura Neural Voice",
     subtitle: "Sub-200ms Conversational Agent & Telephony Backbone",
     category: "AI Automation",
@@ -632,8 +745,8 @@ export default function UnseenWebGLGallery() {
         uniforms: {
           uTexture: { value: mediaTexture },
           fogColor: { value: stoneColor },
-          fogNear: { value: 600 },
-          fogFar: { value: 1900 },
+          fogNear: { value: 1020 },
+          fogFar: { value: 2400 },
           u_time: timeUniform,
           u_bendPoint: { value: bendPoint },
           u_heightOffset: { value: 1.0 },
@@ -659,8 +772,8 @@ export default function UnseenWebGLGallery() {
         uniforms: {
           uTexture: { value: textTexture },
           fogColor: { value: stoneColor },
-          fogNear: { value: 600 },
-          fogFar: { value: 1900 },
+          fogNear: { value: 1020 },
+          fogFar: { value: 2400 },
           u_time: timeUniform,
           u_bendPoint: { value: bendPoint },
           u_heightOffset: { value: 0.2 },
@@ -821,7 +934,7 @@ export default function UnseenWebGLGallery() {
               {/* Card Artwork Box */}
               <div className="relative w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#F0F2F5] border border-[#1C1D20]/8 shadow-[0_10px_28px_rgba(0,0,0,0.06)] flex flex-col justify-between">
                 {/* Minimalist editorial header for website projects */}
-                {proj.filterType === "website" && (
+                {proj.filterType === "website" && proj.id !== "al-muallim-os" && (
                   <div className="absolute top-0 inset-x-0 z-10 flex items-center justify-between px-4 py-2 bg-white/95 backdrop-blur-md border-b border-[#111111]/8">
                     <span className="text-[10px] font-mono text-[#555555] tracking-widest uppercase">
                       {proj.id === "unnoto-khabar" ? "Live Platform" : "Web Platform"}
@@ -836,7 +949,7 @@ export default function UnseenWebGLGallery() {
                   src={proj.posterImage || proj.media}
                   alt={proj.title}
                   className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${
-                    proj.filterType === "website" ? "pt-7" : ""
+                    proj.filterType === "website" && proj.id !== "al-muallim-os" ? "pt-7" : ""
                   }`}
                   loading="lazy"
                 />
