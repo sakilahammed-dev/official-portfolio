@@ -777,7 +777,7 @@ const flagshipProjects: ProjectItem[] = [
 ];
 
 // =========================================================================
-// UNSEEN STUDIO GLSL SHADERS (REVERSE-ENGINEERED)
+// UNSEEN STUDIO GLSL SHADERS (ULTRA-CRISP & RAZOR-SHARP)
 // =========================================================================
 const vertexShader = `
   varying vec2 vUv;
@@ -795,15 +795,10 @@ const vertexShader = `
 
     vec3 transformed = position;
 
-    // Organic wave ripple
-    float ripple = sin((vWorldPos.x - vWorldPos.y) * 0.012 - u_time * 1.5) * 6.0;
-    transformed.z += ripple;
-
-    // Cylindrical bend over top horizon:
-    // Vertices above bendPoint.x smoothly bend backward along the cylinder
+    // Gentle cylindrical bend only when card exits high over the top horizon
     float bend = smoothstep(u_bendPoint.x, u_bendPoint.y, vWorldPos.y);
-    transformed.z -= 1150.0 * bend;
-    transformed.y -= 1.35 * bend * u_heightOffset;
+    transformed.z -= 420.0 * bend;
+    transformed.y -= 0.85 * bend * u_heightOffset;
 
     zPos = transformed.z;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(transformed, 1.0);
@@ -841,18 +836,15 @@ const fragmentShader = `
     }
 
     vec4 texColor = texture2D(uTexture, vUv);
-    
-    // Depth fog calculation
-    float depth = gl_FragCoord.z / gl_FragCoord.w;
-    float fogFactor = smoothstep(fogNear, fogFar, depth);
 
-    // Warm stone / pure white atmosphere fog mixing
+    // 100% Crisp, vibrant base color with zero milky haze
     vec3 baseColor = texColor.rgb;
 
     // Hover exposure & contrast enhancement
-    baseColor = mix(baseColor, baseColor * 1.08 + vec3(0.018), u_hover);
+    baseColor = mix(baseColor, baseColor * 1.06 + vec3(0.012), u_hover);
 
-    vec3 finalRgb = mix(baseColor, fogColor, fogFactor);
+    // Ultra-clean final RGB
+    vec3 finalRgb = baseColor;
 
     // Crisp high-definition selection border & inner rim glow
     if (u_radius > 0.0 && u_hover > 0.001) {
@@ -868,8 +860,9 @@ const fragmentShader = `
       finalRgb += u_borderColor * innerGlow;
     }
 
-    // Smooth vanishing as it curves over horizon into deep space
-    float alpha = texColor.a * cornerAlpha * smoothstep(1950.0, 1150.0, depth) * u_opacity;
+    // Smooth vanishing only as cards smoothly exit high off the top of the viewport
+    float topFade = 1.0 - smoothstep(320.0, 480.0, vWorldPos.y);
+    float alpha = texColor.a * cornerAlpha * topFade * u_opacity;
 
     gl_FragColor = vec4(finalRgb, alpha);
   }
@@ -877,34 +870,36 @@ const fragmentShader = `
 
 function createTextTexture(title: string, subtitle: string) {
   const canvas = document.createElement("canvas");
-  canvas.width = 1024;
-  canvas.height = 110;
+  canvas.width = 2048;
+  canvas.height = 180;
   const ctx = canvas.getContext("2d");
   if (!ctx) return new THREE.CanvasTexture(canvas);
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Title (Clean dark display typography supporting English & Bengali)
+  // Title (Ultra-crisp dark display typography supporting English & Bengali)
   ctx.fillStyle = "#111111";
-  ctx.font = '600 34px "Neue Montreal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Bengali", "Kalpurush", sans-serif';
+  ctx.font = '700 56px "Neue Montreal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Bengali", "Kalpurush", sans-serif';
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
-  ctx.fillText(title, 0, 8);
+  ctx.fillText(title, 0, 10);
 
   // Subtitle / Category
-  ctx.fillStyle = "#666666";
-  ctx.font = '400 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Bengali", sans-serif';
-  ctx.fillText(subtitle, 0, 56);
+  ctx.fillStyle = "#555555";
+  ctx.font = '400 36px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Bengali", sans-serif';
+  ctx.fillText(subtitle, 0, 85);
 
   // Arrow ↗
   ctx.fillStyle = "#111111";
-  ctx.font = 'bold 36px sans-serif';
+  ctx.font = '600 50px -apple-system, sans-serif';
   ctx.textAlign = "right";
-  ctx.fillText("↗", canvas.width - 12, 12);
+  ctx.fillText("↗", canvas.width - 24, 16);
 
   const texture = new THREE.CanvasTexture(canvas);
-  texture.minFilter = THREE.LinearFilter;
+  texture.minFilter = THREE.LinearMipmapLinearFilter;
   texture.magFilter = THREE.LinearFilter;
+  texture.generateMipmaps = true;
+  texture.colorSpace = THREE.SRGBColorSpace;
   return texture;
 }
 
@@ -1018,9 +1013,9 @@ export default function UnseenWebGLGallery() {
 
     const isMobile = width < 768;
     const cols = isMobile ? 1 : 2;
-    // MUCH BIGGER CARDS: Desktop fills 42% of width (up to 620px), Mobile fills width - 32px
+    // EXACT PROPORTIONS: Desktop card matches banner aspect ratio (2048 x 1076)
     const cardW = isMobile ? Math.min(width - 32, 420) : Math.min(620, Math.floor(width * 0.42));
-    const cardH = Math.round(cardW * (10 / 16));
+    const cardH = Math.round(cardW * (1076 / 2048));
     const gapX = isMobile ? 0 : 64;
     const gapY = isMobile ? 64 : 88;
     const textH = isMobile ? 44 : 50;
@@ -1030,28 +1025,31 @@ export default function UnseenWebGLGallery() {
 
     const timeUniform = { value: 0 };
     // In camera space (Z=1000, FOV=50), screen top is ~ +466.
-    // Bend starts at +180 (well above resting card top ~+130) and completes at +520.
-    // Result: Cards are 100% FLAT, straight, uncropped and crystal clear at rest!
-    const bendPoint = new THREE.Vector2(180, 520);
+    // Bend starts only at +320 (near the top edge of screen).
+    // Result: Cards are 100% FLAT, straight, uncropped and crystal clear throughout the viewport!
+    const bendPoint = new THREE.Vector2(320, 720);
 
-    const cardGeometry = new THREE.PlaneGeometry(cardW, cardH, 24, 24);
+    const cardGeometry = new THREE.PlaneGeometry(cardW, cardH, 32, 32);
     const textGeometry = new THREE.PlaneGeometry(cardW, textH, 16, 8);
 
     const texturesToDispose: THREE.Texture[] = [];
     const interactiveMeshes: THREE.Mesh[] = [];
     const textureLoader = new THREE.TextureLoader();
+    const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
 
     activeProjects.forEach((proj, index) => {
       const cardGroup = new THREE.Group();
       cardGroup.userData = { project: proj };
 
-      // High-performance, crash-free texture loading (eliminates Skia GPU mailbox SIGILL crash)
+      // Ultra-sharp, 16x anisotropic mipmapped textures (Crystal-clear, zero blur)
       const textureSource = proj.posterImage || proj.media;
       const mediaTexture = textureLoader.load(textureSource);
       mediaTexture.colorSpace = THREE.SRGBColorSpace;
-      mediaTexture.minFilter = THREE.LinearFilter;
+      mediaTexture.minFilter = THREE.LinearMipmapLinearFilter;
       mediaTexture.magFilter = THREE.LinearFilter;
+      mediaTexture.anisotropy = Math.min(16, maxAnisotropy);
       mediaTexture.generateMipmaps = true;
+      mediaTexture.needsUpdate = true;
       texturesToDispose.push(mediaTexture);
 
       const cardMaterial = new THREE.ShaderMaterial({
@@ -1060,8 +1058,8 @@ export default function UnseenWebGLGallery() {
         uniforms: {
           uTexture: { value: mediaTexture },
           fogColor: { value: stoneColor },
-          fogNear: { value: 1020 },
-          fogFar: { value: 2400 },
+          fogNear: { value: 3500 },
+          fogFar: { value: 7000 },
           u_time: timeUniform,
           u_bendPoint: { value: bendPoint },
           u_heightOffset: { value: 1.0 },
@@ -1082,6 +1080,8 @@ export default function UnseenWebGLGallery() {
       cardGroup.add(mediaMesh);
 
       const textTexture = createTextTexture(proj.title, proj.subtitle);
+      textTexture.anisotropy = Math.min(16, maxAnisotropy);
+      textTexture.needsUpdate = true;
       texturesToDispose.push(textTexture);
       const textMaterial = new THREE.ShaderMaterial({
         vertexShader,
@@ -1089,8 +1089,8 @@ export default function UnseenWebGLGallery() {
         uniforms: {
           uTexture: { value: textTexture },
           fogColor: { value: stoneColor },
-          fogNear: { value: 1020 },
-          fogFar: { value: 2400 },
+          fogNear: { value: 3500 },
+          fogFar: { value: 7000 },
           u_time: timeUniform,
           u_bendPoint: { value: bendPoint },
           u_heightOffset: { value: 0.2 },
@@ -1329,62 +1329,84 @@ export default function UnseenWebGLGallery() {
       {/* ========================================================================= */}
       <div className="block md:hidden w-full bg-white text-[#111111] pt-20 sm:pt-28 pb-16 px-4 sm:px-6 select-none">
         {/* Mobile Header */}
-        <div className="text-center pb-8 sm:pb-12 max-w-md mx-auto">
-          <h2 className="text-[36px] sm:text-[46px] font-normal tracking-[-0.035em] text-[#111111] leading-none font-sans">
+        <div className="text-center pb-8 sm:pb-10 max-w-lg mx-auto">
+          <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#777777] block mb-2">
+            Selected Works • ফ্ল্যাগশিপ প্রজেক্টস
+          </span>
+          <h2 className="text-[34px] sm:text-[44px] font-medium tracking-[-0.035em] text-[#111111] leading-tight font-sans">
             My projects
           </h2>
         </div>
 
         {/* Vertical Feed of Full-Width Responsive Project Cards */}
-        <div className="space-y-8 max-w-md mx-auto">
+        <div className="space-y-10 max-w-lg mx-auto">
           {flagshipProjects.map((proj) => (
             <div
               key={proj.id}
               onClick={() => setSelectedProject(proj)}
-              className="group cursor-pointer active:scale-[0.98] transition-all duration-300"
+              className="group cursor-pointer active:scale-[0.98] transition-all duration-300 bg-[#FAFAFC] p-3.5 sm:p-4 rounded-[24px] border border-[#111111]/8 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)]"
             >
-              {/* Card Artwork Box */}
-              <div className="relative w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#F0F2F5] border border-[#1C1D20]/10 shadow-[0_10px_28px_rgba(0,0,0,0.06)] group-hover:border-[#2563EB] group-hover:ring-2 group-hover:ring-[#2563EB]/40 group-hover:shadow-[0_20px_45px_rgba(37,99,235,0.18)] group-hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
-                {/* Minimalist editorial header for website projects */}
-                {proj.filterType === "website" && proj.id !== "al-muallim-os" && proj.id !== "tutorbari" && proj.id !== "ss-iqra-pure-food" && proj.id !== "jibongori" && proj.id !== "coffee-house" && (
-                  <div className="absolute top-0 inset-x-0 z-10 flex items-center justify-between px-4 py-2 bg-white/95 backdrop-blur-md border-b border-[#111111]/8">
-                    <span className="text-[10px] font-mono text-[#555555] tracking-widest uppercase">
-                      {proj.id === "unnoto-khabar" ? "Live Platform" : "Web Platform"}
-                    </span>
-                    <span className="text-[10px] font-mono text-[#888888]">
-                      {proj.number}
-                    </span>
-                  </div>
-                )}
+              {/* Card Top Meta (Clean & Unobtrusive) */}
+              <div className="flex items-center justify-between gap-2 pb-3 px-1">
+                <div className="flex items-center gap-2 shrink-0">
+                  <span
+                    className="w-2.5 h-2.5 rounded-full shadow-sm shrink-0"
+                    style={{ backgroundColor: proj.accentColor || "#2563EB" }}
+                  />
+                  <span className="text-[11px] font-mono font-bold tracking-wider text-[#222222] uppercase whitespace-nowrap">
+                    PROJ • {proj.number}
+                  </span>
+                </div>
+                <span className="text-[9.5px] sm:text-[10px] font-mono tracking-wider text-[#666666] uppercase bg-white border border-[#111111]/8 px-2.5 py-0.5 rounded-full font-medium shadow-2xs truncate max-w-[210px] text-right">
+                  {proj.category}
+                </span>
+              </div>
 
+              {/* Card Artwork Box: Exact 2048/1076 Aspect Ratio (100% Uncropped, Edge-to-Edge) */}
+              <div
+                className="relative w-full aspect-[2048/1076] rounded-[18px] overflow-hidden bg-[#111113] border border-[#1C1D20]/10 shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-300"
+                style={{
+                  borderColor: `${proj.accentColor || "#111111"}33`,
+                }}
+              >
                 <img
                   src={proj.posterImage || proj.media}
                   alt={proj.title}
-                  className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${
-                    proj.filterType === "website" && proj.id !== "al-muallim-os" && proj.id !== "tutorbari" && proj.id !== "ss-iqra-pure-food" && proj.id !== "jibongori" && proj.id !== "coffee-house" ? "pt-7" : ""
-                  }`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   loading="lazy"
                 />
-
-                {/* Floating Category Pill */}
-                <div className="absolute bottom-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[11px] font-mono font-bold text-[#111111] shadow-sm tracking-wide">
-                  {proj.number} • {proj.category}
-                </div>
-
-                {/* Floating Action Arrow */}
-                <div className="absolute bottom-3.5 right-3.5 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md text-[#111111] flex items-center justify-center text-sm font-bold shadow-sm group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-110 transition-all duration-300">
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
               </div>
 
-              {/* Card Typography Meta */}
-              <div className="pt-3 px-1 space-y-1">
-                <h3 className="text-xl sm:text-2xl font-bold text-[#111111] tracking-tight group-hover:text-[#2563EB] transition-colors duration-200">
-                  {proj.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#666666] leading-relaxed line-clamp-1">
+              {/* Card Typography Meta & Action Row */}
+              <div className="pt-3.5 px-1 space-y-1.5">
+                <div className="flex items-center justify-between gap-3">
+                  <h3
+                    className="text-lg sm:text-xl font-bold text-[#111111] tracking-tight leading-snug transition-colors duration-200"
+                    style={{
+                      color: "#111111",
+                    }}
+                  >
+                    {proj.title}
+                  </h3>
+                  <div
+                    className="w-8 h-8 rounded-full border border-[#111111]/15 bg-white flex items-center justify-center shrink-0 shadow-2xs transition-transform group-hover:scale-110"
+                    style={{ color: proj.accentColor || "#111111" }}
+                  >
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-[13px] text-[#555555] leading-relaxed line-clamp-2 font-normal">
                   {proj.subtitle}
                 </p>
+
+                <div
+                  className="pt-1.5 flex items-center gap-1.5 text-[11px] font-mono font-semibold uppercase tracking-wider"
+                  style={{ color: proj.accentColor || "#2563EB" }}
+                >
+                  <span>কেস স্টাডি দেখুন</span>
+                  <span>↗</span>
+                </div>
               </div>
             </div>
           ))}
@@ -1406,9 +1428,12 @@ export default function UnseenWebGLGallery() {
       >
         {/* Sticky 100vh Viewport Container */}
         <div className="sticky top-0 h-[100dvh] w-full overflow-hidden flex flex-col justify-between bg-white cursor-none">
-          {/* Top Header */}
-          <div className="relative z-20 pt-28 sm:pt-32 md:pt-28 lg:pt-24 pb-8 text-center max-w-4xl mx-auto px-4 pointer-events-auto bg-gradient-to-b from-white via-white/95 to-transparent cursor-default">
-            <h2 className="text-[44px] sm:text-[58px] md:text-[68px] lg:text-[76px] font-normal tracking-[-0.035em] text-[#111111] leading-none font-sans">
+          {/* Top Header (Clean, solid white header bar, zero dark smudges) */}
+          <div className="relative z-20 w-full pt-14 pb-4 text-center bg-white border-b border-black/[0.04] pointer-events-none cursor-default">
+            <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#777777] block mb-1 pointer-events-auto">
+              Selected Works • ফ্ল্যাগশিপ প্রজেক্টস
+            </span>
+            <h2 className="text-[38px] sm:text-[46px] md:text-[52px] font-medium tracking-[-0.035em] text-[#111111] leading-none font-sans pointer-events-auto">
               My projects
             </h2>
           </div>

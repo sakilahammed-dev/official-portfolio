@@ -67,7 +67,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-black/90 backdrop-blur-xl border-b border-white/5 py-3.5 shadow-2xl shadow-black/90"
+            ? "bg-black/95 backdrop-blur-xl border-b border-white/10 py-3 sm:py-3.5 shadow-none"
             : "bg-transparent py-6 sm:py-8"
         } ${className}`}
       >
