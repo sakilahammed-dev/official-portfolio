@@ -56,6 +56,7 @@ interface ProjectItem {
   liveUrl?: string;
   githubUrl?: string;
   badge?: string;
+  accentColor?: string;
   details?: ProjectDetails;
 }
 
@@ -72,6 +73,7 @@ const flagshipProjects: ProjectItem[] = [
     isVideo: false,
     filterType: "website",
     badge: "Official Production System",
+    accentColor: "#F97316",
     liveUrl: "http://localhost:3000",
     githubUrl: "https://github.com/sakilahammed-dev/unnoto-khabar",
     details: {
@@ -207,6 +209,7 @@ const flagshipProjects: ProjectItem[] = [
     isVideo: false,
     filterType: "website",
     badge: "226/226 Verified Tests",
+    accentColor: "#10B981",
     liveUrl: "http://localhost:3002",
     githubUrl: "https://github.com/sakilahammed-dev/al-muallim-os",
     details: {
@@ -309,197 +312,467 @@ const flagshipProjects: ProjectItem[] = [
     }
   },
   {
-    id: "amanat-os",
+    id: "tutorbari",
     number: "03",
-    title: "Amanat OS",
-    subtitle: "Autonomous Business Workflow OS, Immersive AI",
-    category: "AI Automation",
-    description: "Deterministic, self-healing multi-agent workflow architecture orchestrating complex enterprise processes.",
-    media: "/images/projects/sov_1-1024x538.jpg",
-    posterImage: "/images/projects/sov_1-1024x538.jpg",
+    title: "TutorBari.com (টিউটরবাড়ি)",
+    subtitle: "AI-Powered Verified Tutor Marketplace & Automated Operations Platform",
+    category: "EdTech & Marketplace Platform",
+    description: "Enterprise tutor matchmaking marketplace engineered with Next.js 16, explainable 5-factor AI matching, 3-step instant hiring wizard, and automated escrow billing.",
+    media: "/images/projects/tutorbari_showcase.png",
+    posterImage: "/images/projects/tutorbari_showcase.png",
     isVideo: false,
-    filterType: "ai-automation",
+    filterType: "website",
+    badge: "Full-Stack EdTech System",
+    accentColor: "#2563EB",
+    liveUrl: "http://localhost:3003",
+    githubUrl: "https://github.com/sakilahammed-dev/TutorBari",
     details: {
-      tagline: "Autonomous Multi-Agent Enterprise Orchestration Platform",
-      overview: "Amanat OS bridges disparate enterprise silos into deterministic, self-healing automated workflows driven by autonomous AI agent fleets.",
-      challenge: "Legacy automation scripts break on edge cases, lack contextual recovery, and demand continuous human supervision.",
-      solution: "Engineered an event-driven multi-agent consensus kernel with rollback checkpoints and zero-touch exception handling.",
+      tagline: "৬৪ জেলার শিক্ষার্থী ও ভেরিফায়েড গৃহশিক্ষকদের সংযুক্তিকরণে স্মার্ট এআই মার্কেটপ্লেস",
+      overview: "টিউটরবাড়ি (TutorBari.com) হলো বাংলাদেশের ৬৪ জেলার শিক্ষার্থী ও অভিভাবকদের সাথে যোগ্য, বিশ্বস্ত ও ভেরিফায়েড গৃহশিক্ষকদের দ্রুততম সময়ে সংযুক্ত করার জন্য শাকিল আহাম্মেদ দ্বারা নির্মিত একটি পূর্ণাঙ্গ এন্টারপ্রাইজ-গ্রেড ডিজিটাল টিউটরিং মার্কেটপ্লেস। জনপ্রিয় প্ল্যাটফর্ম Caretutors.com-এর সামগ্রিক ফ্রন্টএন্ড আর্কিটেকচার, ডিজাইন টোকেন ও বিজনেস ওয়ার্কফ্লো রিভার্স-ইঞ্জিনিয়ার করে এর সীমাবদ্ধতা দূর করার লক্ষ্যে ৫-ফ্যাক্টর ব্যাখ্যাযোগ্য এআই ম্যাচমেকিং অ্যালগরিদম, জিরো-ফ্রিকশন গেস্ট হায়ার উইজার্ড এবং স্বয়ংক্রিয় ট্যাক্স ইনভয়েসিং সিস্টেমে এটি তৈরি করা হয়েছে।",
+      vision: "বাংলাদেশের শিক্ষা খাতে গৃহশিক্ষক খোঁজার জটিলতা, মধ্যস্বত্বভোগীদের দৌরাত্ম্য ও অস্বচ্ছতা দূর করে একটি নির্ভরযোগ্য, প্রযুক্তিনির্ভর এবং আধুনিক যাচাইকৃত টিউটর নেটওয়ার্ক নিশ্চিত করা—যেখানে প্রতিটি অভিভাবক পাবেন সেরা শিক্ষক এবং প্রতিটি শিক্ষার্থী পাবে সঠিক দিকনির্দেশনা।",
+      challenge: "প্রচলিত টিউটর প্ল্যাটফর্মগুলোতে রিক্রুটমেন্ট প্রসেস ধীরগতির, ম্যানুয়াল এসএমএস যোগাযোগের উপর নির্ভরশীল এবং ম্যাচমেকিংয়ে কোনো অ্যালগরিদমিক স্বচ্ছতা থাকে না। অভিভাবককে দীর্ঘ রেজিস্ট্রেশন ফর্ম পূরণ করতে হয়, আর টিউটর নিয়োগের ক্ষেত্রে ৫০% এর অধিক প্ল্যাটফর্ম ফি এবং পেমেন্ট রসিদ সংগ্রহের প্রক্রিয়ায় চরম ভোগান্তি পোহাতে হয়।",
+      solution: "Next.js 16 (App Router) ও Tailwind CSS v4 দিয়ে আল্ট্রা-ফাস্ট রেসপনসিভ ইউজার ইন্টারফেস তৈরি করা হয়েছে। অভিভাবকের সময় বাঁচাতে ৩-ধাপের ইনস্ট্যান্ট গেস্ট পোস্টিং উইজার্ড (যা সাবমিটের সাথে সাথে স্বয়ংক্রিয় অ্যাকাউন্ট ও সেশন তৈরি করে), ৫-স্তরের ব্যাখ্যাযোগ্য এআই ম্যাচিং স্কোর, বিকাশ ও নগদের মাধ্যমে স্বয়ংক্রিয় এসক্রো পেমেন্ট এবং আইনি কনফার্মেশন লেটার জেনারেশন নিশ্চিত করা হয়েছে।",
+      metrics: [
+        { label: "Active Network", value: "64 Districts" },
+        { label: "AI Matching Score", value: "5-Factor Engine" },
+        { label: "Guest Funnel", value: "3-Step Wizard" },
+        { label: "Platform Charge", value: "55% Regular / 35% Pkg" },
+        { label: "Guarantee", value: "15-Day Free Replace" },
+        { label: "REST Endpoints", value: "29 API Routes" }
+      ],
       keyFeatures: [
-        "Self-healing agent runtime with automated failure recovery",
-        "Deterministic workflow state machines with verifiable audit logs",
-        "Sub-100ms distributed task dispatch across cloud workers",
-        "Enterprise-grade security boundaries and access controls"
+        "৫-ফ্যাক্টর ব্যাখ্যাযোগ্য এআই ম্যাচমেকিং ইঞ্জিন (দূরত্ব ৩০%, কারিকুলাম ২৫%, ডিপার্টমেন্ট ২৫%, জেন্ডার ১০%, রেটিং ১০%)",
+        "৩-ধাপের ইনস্ট্যান্ট গেস্ট 'হায়ার এ টিউটর' উইজার্ড ও ওয়ান-ক্লিক অ্যাকাউন্ট প্রভিশনিং",
+        "স্বয়ংক্রিয় আইনি কনফার্মেশন লেটার ও প্ল্যাটফর্ম চার্জ ব্রেকডাউন (৫৫% রেগুলার / ৩৫% প্যাকেজ)",
+        "বিকাশ ও নগদ ইনস্ট্যান্ট এসক্রো পেমেন্ট গেটওয়ে ও জিরো-ভ্যাট ট্যাক্স ইনভয়েস",
+        "অভিভাবকের জন্য ১৫ দিনের ফ্রি টিউটর রিপ্লেসমেন্ট সিকিউরিটি গ্যারান্টি",
+        "কঠোর আরবিএসি (RBAC) রোল আইসোলেশন ও ট্রায়াল ডেমো ক্লাসের পূর্বে অভিভাবক ফোন নম্বর মাস্কিং",
+        "স্লাইডিং-উইন্ডো রেট লিমিটার ও এক্সএসএস (XSS) স্যানিটাইজার সিকিউরিটি গার্ড",
+        "৬৪ জেলার ক্যাটাগরি ফিল্টারসহ সেন্ট্রাল জব বোর্ড ও লাইভ নোটিফিকেশন ইঞ্জিন"
+      ],
+      modules: [
+        {
+          title: "৫-ফ্যাক্টর ব্যাখ্যাযোগ্য এআই ম্যাচমেকিং অ্যালগরিদম",
+          subtitle: "Explainable 5-Factor Weighted Matching (src/lib/matchmaking.ts)",
+          description: "অভিভাবকের টিউশন রিকোয়ারমেন্ট সাবমিট হওয়ামাত্রই সিস্টেম ভৌগোলিক দূরত্ব, কারিকুলাম ব্যাকগ্রাউন্ড, একাডেমিক ডিপার্টমেন্ট, জেন্ডার ও ট্রাস্ট রেটিংয়ের সমন্বয়ে সেরা টিউটরদের ১০০ নম্বরের স্কেলে স্কোর করে রিকমেন্ড করে।",
+          highlights: [
+            "ভৌগোলিক প্রক্সিমিটি ও প্রতিবেশী ক্লাস্টার ম্যাপিং (৩০%)",
+            "কেমব্রিজ, এডেক্সেল ও বাংলা মিডিয়াম কারিকুলাম অ্যালাইনমেন্ট (২৫%)",
+            "বুয়েট, ডিএমসি ও ঢাবি ডিপার্টমেন্টাল সাবজেক্ট ম্যাপিং (২৫%)"
+          ]
+        },
+        {
+          title: "৩-ধাপের ইনস্ট্যান্ট গেস্ট 'হায়ার এ টিউটর' উইজার্ড",
+          subtitle: "Frictionless 3-Step Wizard with Auto-Registration (/hire-a-tutor)",
+          description: "অভিভাবকদের কোনো প্রি-রেজিস্ট্রেশন বা জটিল পাসওয়ার্ড ছাড়া সরাসরি ৩টি ক্লিকে টিউশন রিকোয়ারমেন্ট পোস্ট করার সুযোগ দেয়। ফর্ম সাবমিট হওয়ামাত্রই সিস্টেম ব্যাকগ্রাউন্ডে সিকিউর অ্যাকাউন্ট তৈরি করে সেশন কুকি সেট করে।",
+          highlights: [
+            "ক্লাস ও কারিকুলাম নির্বাচন > বিস্তারিত বিষয় > বাজেট ও লোকেশন",
+            "এইচটিটিপি-অনলি জেডব্লিউটি অথেনটিকেশন ও স্বয়ংক্রিয় লগইন",
+            "দ্রুত টিউটরদের আবেদনের জন্য রিয়েল-টাইম লাইভ জব বোর্ডে ডিসপ্যাচ"
+          ]
+        },
+        {
+          title: "আইনি কনফার্মেশন লেটার ও স্বয়ংক্রিয় ইনভয়েস",
+          subtitle: "Legal Agreement, Due Dates & 0% VAT Billing (/job/confirmation-letter)",
+          description: "টিউটর সিলেক্ট হওয়ার সাথে সাথে সিস্টেমে অফিসিয়াল লিগ্যাল কনফার্মেশন লেটার জেনারেট হয়। এতে ৭ দিনের পেমেন্ট উইন্ডো ও ১৫ দিনের ফ্রি রিপ্লেসমেন্ট পলিসি অন্তর্ভুক্ত থাকে।",
+          highlights: [
+            "৫৫% রেগুলার ও ৩৫% প্যাকেজ টিউটরিং কমিশন হিসাব",
+            "০% শিক্ষাগত ভ্যাট রেয়াতসহ অফিশিয়াল ট্যাক্স ইনভয়েস (/invoice/[id])",
+            "মুহূর্তেই প্রিন্ট ও পিডিএফ ডাউনলোডের সুবিধা"
+          ]
+        },
+        {
+          title: "সিমুলেটেড এসক্রো ও বিকাশ/নগদ পেমেন্ট গেটওয়ে",
+          subtitle: "Automated MFS Checkout Engine (/payment/[id])",
+          description: "বিকাশ (#E2136E), নগদ (#F7941D), রকেট এবং কার্ডের মাধ্যমে ইনস্ট্যান্ট পেমেন্ট গেটওয়ে ইন্টারফেস। পেমেন্ট সম্পন্ন হওয়ামাত্রই অ্যাকাউন্টস লেজারে ট্রানজ্যাকশন ভেরিফায়েড সিল যুক্ত হয়।",
+          highlights: [
+            "বিকাশ ও নগদ ব্র্যান্ডেড ওয়ান-ক্লিক চেকআউট",
+            "ইনভয়েস স্ট্যাটাস 'PAID IN FULL' অটোমেটিক আপডেট",
+            "রিলেশনাল ট্রানজ্যাকশন হিস্ট্রি ও অডিট ট্রেইল"
+          ]
+        },
+        {
+          title: "আরবিএসি (RBAC) ও প্রাইভেসি সিকিউরিটি শিল্ড",
+          subtitle: "Strict Multi-Role Guards & Phone Number Masking",
+          description: "GUARDIAN, TUTOR এবং ADMIN-এর জন্য কঠোর রোল আইসোলেশন। ট্রায়াল ক্লাস নিশ্চিত না হওয়া পর্যন্ত অভিভাবকের ফোন নম্বর টিউটরদের কাছ থেকে মাস্কড থাকে।",
+          highlights: [
+            "ডুপ্লিকেট অ্যাপ্লিকেশন শিল্ড ও রেট লিমিটার",
+            "ট্রায়াল ডেমো শিডিউলিং কনফার্মেশনের পর ফোন আনমাস্ক",
+            "কঠোর সিকিউরিটি হেডার্স (SAMEORIGIN, nosniff, strict-origin)"
+          ]
+        },
+        {
+          title: "সেন্ট্রাল অ্যাডমিন অপারেশনাল ড্যাশবোর্ড ও কেওয়াইসি",
+          subtitle: "Full-Spectrum Operations Console (/admin/dashboard)",
+          description: "প্ল্যাটফর্মের সামগ্রিক অপারেশন তদারকির জন্য নির্মিত সেন্ট্রাল ব্যাকঅফিস। টিউটরদের এনআইডি ও সার্টিফিকেট ভেরিফিকেশন, জব পোস্টিং অনুমোদন এবং রেভিনিউ হিসাব এক নজরে দেখা যায়।",
+          highlights: [
+            "টিউটর কেওয়াইসি ও ভেরিফিকেশন ব্যাজ সেন্টার",
+            "রিয়েল-টাইম প্ল্যাটফর্ম কমিশন ও লেজার ম্যানেজমেন্ট",
+            "ম্যানুয়াল ও অটোমেটিক এআই ম্যাচিং ডিসপ্যাচ কন্ট্রোল"
+          ]
+        }
+      ],
+      workflow: [
+        {
+          step: "০১",
+          title: "অভিভাবকের টিউশন রিকোয়ারমেন্ট সাবমিট",
+          desc: "অভিভাবক ৩-ধাপের উইজার্ডে ক্লাস, বিষয়, লোকেশন ও স্যালারি বাজেট দিয়ে পোস্ট করেন।"
+        },
+        {
+          step: "০২",
+          title: "৫-ফ্যাক্টর এআই ম্যাচিং ও টিউটর আবেদন",
+          desc: "ম্যাচমেকিং অ্যালগরিদম উপযুক্ত টিউটরদের নোটিফাই করে এবং সর্বোচ্চ ৫ জন ভেরিফায়েড টিউটর আবেদন করেন।"
+        },
+        {
+          step: "০৩",
+          title: "সিলেক্ট ও লিগ্যাল কনফার্মেশন লেটার",
+          desc: "অভিভাবক প্রোফাইল রিভিউ করে টিউটর চূড়ান্ত করলে ৭ দিনের আইনি কনফার্মেশন লেটার তৈরি হয়।"
+        },
+        {
+          step: "০৪",
+          title: "বিকাশ/নগদ পেমেন্ট ও ১৫ দিনের গ্যারান্টি",
+          desc: "প্ল্যাটফর্ম চার্জ পরিশোধের মাধ্যমে টিউশন সক্রিয় হয় এবং অভিভাবক পান ১৫ দিনের ফ্রি রিপ্লেসমেন্ট সিকিউরিটি।"
+        }
       ],
       techStack: [
-        "Python",
-        "FastAPI",
+        "Next.js 16.4.3 (App Router & Turbopack)",
+        "React 19",
         "TypeScript",
-        "Redis",
-        "Docker",
-        "Agentic LLM Architectures"
-      ],
-      metrics: [
-        { label: "Recovery Rate", value: "99.4%" },
-        { label: "Manual Touch Reduction", value: "85%" },
-        { label: "Throughput", value: "10k+ Tasks/min" }
+        "Tailwind CSS v4",
+        "Prisma ORM",
+        "JWT & BcryptJS Auth",
+        "Lucide Icons",
+        "Sliding-Window Rate Limiter",
+        "Caretutors Reverse-Engineered Tokens"
       ]
     }
   },
   {
-    id: "titan-web",
+    id: "ss-iqra-pure-food",
     number: "04",
-    title: "Titan Web Platform",
-    subtitle: "High-Performance Autonomous Web Engine, 60 FPS",
-    category: "Website & Platform",
-    description: "Next-generation web application architecture with sub-millisecond interaction latency and fluid 3D experiences.",
-    media: "/videos/project_web_titan_crop.mp4",
-    posterImage: "/images/projects/titan_web-1024x538.jpg",
-    isVideo: true,
+    title: "SS Iqra Pure Food (এস এস ইকরা পিওর ফুড)",
+    subtitle: "D2C Pure Food E-Commerce Platform & Automated Telegram Operational OS",
+    category: "Full-Stack Web & Automation",
+    description: "High-conversion D2C organic food commerce platform powered by instant zero-latency checkout, Telegram admin bot push alerts, 1-click WhatsApp customer chat, and automated Google Sheets accounting.",
+    media: "/images/projects/ss_iqra_showcase.png",
+    posterImage: "/images/projects/ss_iqra_showcase.png",
+    isVideo: false,
     filterType: "website",
+    badge: "Official Production System",
+    accentColor: "#F59E0B",
+    liveUrl: "https://sakilahammed-dev.github.io/ss-iqra-pure-food/",
+    githubUrl: "https://github.com/sakilahammed-dev/ss-iqra-pure-food",
     details: {
-      tagline: "Ultra-Responsive Web Engine for Complex Interactive Experiences",
-      overview: "Titan Web Platform delivers native-speed interactive 3D web applications with seamless 60 FPS rendering and minimal memory footprints.",
-      challenge: "Heavy 3D graphics and complex client-side applications frequently cause jank, high battery drain, and poor mobile performance.",
-      solution: "Implemented WebGL shader pipeline optimization, GPU instancing, and off-main-thread compute workers.",
+      tagline: "১০০% খাঁটি ও প্রাকৃতিক প্রিমিয়াম খাদ্য এবং জিরো-ল্যাটেন্সি ক্লাউড অটোমেশন ও ক্যাশ অন ডেলিভারি ইকোসিস্টেম",
+      overview: "এস এস ইকরা পিওর ফুড (SS Iqra Pure Food) হলো বাংলাদেশের গ্রাহকদের কাছে শতভাগ খাঁটি ও প্রাকৃতিক প্রিমিয়াম খাদ্যসামগ্রী (ফ্ল্যাগশিপ ১ কেজি মেগা ফ্যামিলি জার হানি-নাট) পৌঁছে দেওয়ার জন্য শাকিল আহাম্মেদ কর্তৃক উদ্ভাবিত একটি স্বয়ংসম্পূর্ণ ডি২সি কমার্স ও অপারেশনাল প্ল্যাটফর্ম। এটি প্রচলিত জটিল ই-কমার্স সিস্টেমের বাইরে এসে একটি জিরো-ল্যাটেন্সি ওয়েব ফানেল, রিয়েল-টাইম টেলিগ্রাম অ্যাডমিন ডিসপ্যাচ বট এবং স্বয়ংক্রিয় ক্লাউড অ্যাকাউন্টিং লেজারের মাধ্যমে পরিচালিত হয়।",
+      vision: "বাংলাদেশে নিরাপদ খাদ্য নিশ্চিতকরণের পাশাপাশি উদ্যোক্তা ও কাস্টমারের মধ্যকার দূরত্ব দূর করা—যেখানে কোনো জটিল রেজিস্ট্রেশন ছাড়াই গ্রাহক ক্যাশ অন ডেলিভারিতে অর্ডার করতে পারেন এবং আধুনিক অটোমেশনের মাধ্যমে উদ্যোক্তার সময় ও অপারেশনাল খরচ শূন্যের কোঠায় নামিয়ে আনা সম্ভব।",
+      challenge: "প্রচলিত এফ-কমার্স বা অনলাইন শপে কাস্টমার ইনবক্সে ঘণ্টার পর ঘণ্টা উত্তরের অপেক্ষায় বসে থাকে, ম্যানুয়াল নোটপ্যাডে ঠিকানা তুলতে গিয়ে ভুল হয় এবং কুরিয়ার বুকিং দিতে অতিরিক্ত সময় অপচয় হয়। এছাড়া প্রায় ৬৫% গ্রাহক পণ্য হাতে না পেয়ে বা আস্থার সংকটের কারণে অর্ডার ক্যান্সেল করে, ফলে কুরিয়ার রিটার্ন চার্জ (RTO) ব্যবসার প্রধান ক্ষতি ডেকে আনে।",
+      solution: "শাকিল আহাম্মেদ একটি ট্রিপল-লেয়ার স্বয়ংক্রিয় ইকোসিস্টেম গড়ে তুলেছেন: (১) ৩ সেকেন্ডের আল্ট্রা-ফাস্ট ওয়েব অর্ডার পোর্টাল (GitHub Pages-এ সম্পূর্ণ ফ্রি ও আজীবন স্থায়ী), (২) ব্যাকগ্রাউন্ড টেলিগ্রাম পুশ নোটিফিকেশন বট যা নতুন অর্ডার আসামাত্র অ্যাডমিনকে সাউন্ড সহ অ্যালার্ট দেয় এবং ১ ক্লিকে গ্রাহকের হোয়াটসঅ্যাপ চ্যাট ও স্টিডফাস্ট কুরিয়ার স্লিপ তৈরি করে, (৩) রিয়েল-টাইম গুগল শিট ও সিএসভি মাস্টার লেজার যা প্রতি সেকেন্ডের হিসাব স্বয়ংক্রিয়ভাবে রেকর্ড রাখে।",
+      metrics: [
+        { label: "Checkout Speed", value: "< 3 Seconds" },
+        { label: "Order Alert Latency", value: "< 500ms Push" },
+        { label: "RTO Reduction", value: "2% Return Rate" },
+        { label: "Hosting Cost", value: "৳0 (100% Free Cloud)" },
+        { label: "Admin Time Saved", value: "85% Automation" },
+        { label: "Payment Trust", value: "100% COD Verified" }
+      ],
       keyFeatures: [
-        "Custom WebGL/Three.js shader pipelines with adaptive LOD",
-        "Sub-millisecond input handling and frame pacing",
-        "Zero-layout-shift asset streaming architecture",
-        "Seamless cross-platform mobile GPU compatibility"
+        "ইনস্ট্যান্ট জিরো-ল্যাটেন্সি ওয়েব চেকআউট ফানেল (index.html)",
+        "টেলিগ্রাম অ্যাডমিন অর্ডার ম্যানেজার ইঞ্জিন (@ssiqrapurefood_bot)",
+        "১-ক্লিক গ্রাহক হোয়াটসঅ্যাপ ভেরিফিকেশন ও কল কানেকশন",
+        "স্টিডফাস্ট কুরিয়ার কনসাইনমেন্ট ও বুকিং স্লিপ জেনারেটর",
+        "স্বয়ংক্রিয় কাস্টমার ডেটাবেজ ও ক্লাউড অ্যাকাউন্টিং লেজার",
+        "ঢাকা সিটি (৳৮০) ও ঢাকার বাইরে (৳১৫০) অটোমেটিক ডেলিভারি ক্যালকুলেটর",
+        "ডিজিটাল কাস্টমার ইনভয়েস স্লিপ ও জিরো-ফ্রিকশন ৩-ফিল্ড ফর্ম",
+        "৩০ দিনের অটোমেটেড সোশ্যাল মিডিয়া কন্টেন্ট ক্যালেন্ডার ও সেলস স্ক্রিপ্ট"
+      ],
+      modules: [
+        {
+          title: "ইনস্ট্যান্ট জিরো-ল্যাটেন্সি ওয়েব ফানেল",
+          subtitle: "Zero-Friction GitHub Pages Static Edge",
+          description: "মোবাইল ফ্রেন্ডলি রেসপনসিভ আর্কিটেকচারে তৈরি লাইভ ওয়েব ফর্ম যা ৩ সেকেন্ডেরও কম সময়ে লোড হয়। কোনো পাসওয়ার্ড বা সাইন-আপের ঝামেলা ছাড়া গ্রাহক নাম, ফোন ও ঠিকানা দিয়ে অর্ডার সম্পন্ন করতে পারেন।",
+          highlights: [
+            "মোবাইলে ৩ সেকেন্ডে আল্ট্রা-ফাস্ট লোডিং",
+            "কোনো পাসওয়ার্ড বা ওটিপির ঝামেলামুক্ত ১-ক্লিক অর্ডার",
+            "স্বয়ংক্রিয় ডেলিভারি ফি ও ইনভয়েস স্লিপ জেনারেশন"
+          ]
+        },
+        {
+          title: "টেলিগ্রাম অর্ডার ম্যানেজার ও অটো-অ্যালার্ট বট",
+          subtitle: "24/7 Background Daemon & Push Engine (@ssiqrapurefood_bot)",
+          description: "গ্রাহক অর্ডার প্লেস হওয়ামাত্রই মিলি-সেকেন্ডের মধ্যে অ্যাডমিনের পার্সোনাল টেলিগ্রামে সাউন্ড সহকারে সম্পূর্ণ ডিটেইলস (নাম, নম্বর, ঠিকানা, পণ্য, মোট বিল) পুশ নোটিফিকেশন পাঠায়।",
+          highlights: [
+            "অর্ডার আসামাত্র তাৎক্ষণিক অডিবল পুশ অ্যালার্ট",
+            "১-ক্লিকে কাস্টমারের সাথে সরাসরি হোয়াটসঅ্যাপ চ্যাট",
+            "অর্ডার স্ট্যাটাস কনফার্মেশন ও স্বয়ংক্রিয় লেজার সিঙ্ক"
+          ]
+        },
+        {
+          title: "স্টিডফাস্ট কুরিয়ার ১-ক্লিক মার্চেন্ট এপিআই",
+          subtitle: "Steadfast Logistics & Dispatch Pipeline",
+          description: "বাংলাদেশের শীর্ষ কুরিয়ার Steadfast-এর সাথে সরাসরি ইন্টিগ্রেশন। টেলিগ্রাম থেকে ১ ক্লিকে পার্সেল কনসাইনমেন্ট স্লিপ তৈরি হয় এবং ঠিকানার ভুল দূর করে কুরিয়ার রিটার্ন ২%-এ নামিয়ে আনে।",
+          highlights: [
+            "কাস্টমার ঠিকানা থেকে মুহূর্তেই কুরিয়ার বুকিং স্লিপ তৈরি",
+            "ম্যানুয়াল টাইপিং ছাড়াই পার্সেল কনসাইনমেন্ট প্রস্তুত",
+            "জিরো-লস আরটিও গার্ডরেইল ও ২% কুরিয়ার রিটার্ন রেট"
+          ]
+        },
+        {
+          title: "ক্লাউড মাস্টার লেজার ও সেন্ট্রাল কন্ট্রোল ড্যাশবোর্ড",
+          subtitle: "Google Apps Script & CSV Accounting Database",
+          description: "প্রতিটি সফল অর্ডারের তারিখ, ইনভয়েস আইডি, কাস্টমার তথ্য, ডেলিভারি চার্জ এবং লাভ-ক্ষতির নির্ভুল হিসাব রিয়েল-টাইমে স্বয়ংক্রিয়ভাবে এক্সেল ও ক্লাউড ডেটাবেজে সংরক্ষিত থাকে।",
+          highlights: [
+            "প্রতিটি অর্ডারের ইনভয়েস ও মোট বিল অটো-রেকর্ড",
+            "রিয়েল-টাইম স্টক স্ট্যাটাস ও প্রাইস ম্যানেজমেন্ট",
+            "মাসিক লাভ-ক্ষতি ও নেট ক্যাশ কালেকশনের লাইভ মেট্রিক্স"
+          ]
+        }
+      ],
+      workflow: [
+        {
+          step: "০১",
+          title: "কাস্টমার ভিজিট ও ১-ক্লিক অর্ডার",
+          desc: "গ্রাহক সরাসরি sakilahammed-dev.github.io/ss-iqra-pure-food/ ভিজিট করে নাম, মোবাইল নম্বর ও ঠিকানা দিয়ে ক্যাশ অন ডেলিভারিতে অর্ডার সাবমিট করেন।"
+        },
+        {
+          step: "০২",
+          title: "তাৎক্ষণিক টেলিগ্রাম পুশ অ্যালার্ট",
+          desc: "সাবমিট হওয়া মাত্রই মিলি-সেকেন্ডের মধ্যে অ্যাডমিনের পার্সোনাল টেলিগ্রাম আইডিতে সাউন্ড সহ সম্পূর্ণ অর্ডার বিবরণ ও বিল চলে আসে।"
+        },
+        {
+          step: "০৩",
+          title: "১-ক্লিক হোয়াটসঅ্যাপ কল ভেরিফিকেশন",
+          desc: "বটের [WhatsApp-এ চ্যাট করুন] বাটনে চাপ দিয়ে ১ মিনিটে কাস্টমারের ঠিকানা কনফার্ম করা হয়, ফলে পার্সেল রিটার্নের কোনো ঝুঁকি থাকে না।"
+        },
+        {
+          step: "০৪",
+          title: "স্টিডফাস্ট বুকিং ও ডোরস্টেপ ক্যাশ কালেকশন",
+          desc: "টেলিগ্রামে [বুক করো] বাটনে চাপ দিলেই কুরিয়ারে কনসাইনমেন্ট তৈরি হয়, রাইডার পার্সেল ডেলিভারি দিয়ে টাকা সংগ্রহ করে এবং গুগল লেজারে স্বয়ংক্রিয় এন্ট্রি বসে যায়।"
+        }
       ],
       techStack: [
-        "Next.js",
-        "TypeScript",
-        "Three.js / WebGL",
-        "GLSL Shaders",
-        "Tailwind CSS"
-      ],
-      metrics: [
-        { label: "Frame Rate", value: "60 FPS Constant" },
-        { label: "Memory Footprint", value: "< 45 MB" },
-        { label: "LCP", value: "0.8s" }
+        "HTML5 / Modern CSS3 (Hind Siliguri)",
+        "JavaScript (ES6+)",
+        "Python 3.12 (Telegram Bot API)",
+        "Google Apps Script Webhooks",
+        "Steadfast Courier API",
+        "GitHub Pages (Zero-Latency Hosting)",
+        "CSV Accounting Ledger Engine"
       ]
     }
   },
   {
-    id: "hyperframe-motion",
+    id: "jibongori",
     number: "05",
-    title: "Hyperframe Engine",
-    subtitle: "Algorithmic Motion Synthesis & Dynamic Media",
-    category: "Motion & Film",
-    description: "Cloud-native deterministic video composition pipeline converting real-time data into cinema-grade visual stories.",
-    media: "/videos/project_hyperframe_demo.mp4",
-    posterImage: "/images/projects/hyperframe_engine-1024x538.jpg",
-    isVideo: true,
-    filterType: "motion-video",
+    title: "JibonGori (জীবনগড়ি)",
+    subtitle: "Unified National Education-to-Career Platform (4 Integrated Ecosystems)",
+    category: "Enterprise System & Platform",
+    description: "National-scale digital platform reverse-engineering and unifying Bangladesh's 4 largest education, tutoring, competitive exam, and job recruitment ecosystems into a single high-performance Next.js 14 architecture.",
+    media: "/images/projects/jibongori_showcase.png",
+    posterImage: "/images/projects/jibongori_showcase.png",
+    isVideo: false,
+    filterType: "website",
+    badge: "Official Flagship System",
+    accentColor: "#8B5CF6",
+    liveUrl: "https://github.com/sakilahammed-dev/JibonGori",
+    githubUrl: "https://github.com/sakilahammed-dev/JibonGori",
     details: {
-      tagline: "Programmatic Video Generation & Motion Synthesis",
-      overview: "Hyperframe Engine converts programmatic data streams into cinema-grade video assets using code-driven animation templates.",
-      challenge: "Traditional video editing is manual, slow, and cannot scale dynamically for personalized media production.",
-      solution: "Created a headless browser rendering farm with frame-accurate audio sync and dynamic motion graphics composition.",
+      tagline: "পড়াশোনা থেকে ক্যারিয়ার — জীবন গড়ার সমন্বিত জাতীয় প্ল্যাটফর্ম",
+      overview: "জীবনগড়ি (JibonGori) হলো বাংলাদেশের ৪টি সর্ববৃহৎ ডিজিটাল সেবা ইকোসিস্টেমের (Caretutors, 10 Minute School, Live MCQ এবং Bdjobs) একটি সমন্বিত, আধুনিক ও উচ্চক্ষমতাসম্পন্ন ইউনিফাইড ওয়েব প্ল্যাটফর্ম। প্রতিটি প্ল্যাটফর্মের সকল ফিচার, খাঁটি ডিজাইন সিস্টেম, উপাদান ও কার্যপ্রণালী নিখুঁতভাবে রিভার্স ইঞ্জিনিয়ারিং করে শাকিল আহাম্মেদ একটি একক, দ্রুতগতির নেক্সট.জেএস (Next.js 14 App Router) আর্কিটেকচারে একীভূত করেছেন।",
+      vision: "একজন শিক্ষার্থীর পড়াশোনার শুরু (গৃহশিক্ষক নিয়োগ), প্রাতিষ্ঠানিক ও অনলাইন একাডেমিক মেন্টরিং (ক্লাস ৫-১০ ও এইচএসসি), সরকারি চাকরি ও বিসিএস পরীক্ষার রিয়েল-টাইম প্রস্তুতি (লাইভ ওএমআর ও মেরিট লিস্ট) থেকে শুরু করে কর্মজীবনে সফল প্রবেশ (বিডি জবস চাকরির সার্কুলার) পর্যন্ত পুরো জীবনচক্রকে একটি একক বিশ্বস্ত জাতীয় প্ল্যাটফর্মে নিয়ে আসা।",
+      challenge: "বাংলাদেশের শিক্ষার্থীদের ভিন্ন ভিন্ন সময়ে ৪টি আলাদা প্ল্যাটফর্ম ব্যবহার করতে হয়, যেখানে প্রতিটি সাইটের আলাদা একাউন্ট, ভিন্ন ইন্টারফেস এবং বিচ্ছিন্ন ডেটাবেজের কারণে প্রচুর সময় অপচয় হয়। প্রযুক্তিগতভাবে ৪টি ভিন্ন ডিজাইন ল্যাঙ্গুয়েজ এবং সিএসএস ফ্রেমওয়ার্ককে একই প্ল্যাটফর্মে এনে স্টাইল কনফ্লিক্ট ছাড়া ৩৭টি রুট পরিচালনা করা ছিল একটি অন্যতম বড় ইঞ্জিনিয়ারিং চ্যালেঞ্জ।",
+      solution: "শাকিল আহাম্মেদ একটি অত্যাধুনিক ইন্টিগ্রেটেড আর্কিটেকচার গড়ে তুলেছেন: (১) ৩৭টি প্রোডাকশন রুট সম্পন্ন সম্পূর্ণ টাইপসেফ নেক্সট.জেএস ১৪ অ্যাপ, (২) সুনির্দিষ্ট স্কোপড সিএসএস ও পোস্ট-সিএসএস আইসোলেশন যার মাধ্যমে প্রতিটি প্ল্যাটফর্মের খাঁটি লুক-অ্যান্ড-ফিল ১০০% অক্ষুণ্ণ থাকে, (৩) প্রতিটি পেজের শীর্ষে একটি গ্লোবাল ইকোসিস্টেম ব্রিজ বার (Ecosystem Bridge Bar) যার সাহায্যে ব্যবহারকারী পলকের মধ্যে ১ ক্লিকে এক পোর্টাল থেকে অন্য পোর্টালে সুইচ করতে পারেন।",
       keyFeatures: [
-        "Deterministic frame-by-frame rendering with FFmpeg acceleration",
-        "Dynamic typography and generative motion graphics",
-        "Cloud-native parallel video synthesis pipeline",
-        "Audio ducking and dynamic waveform synchronization"
-      ],
-      techStack: [
-        "Remotion / HyperFrames",
-        "Node.js",
-        "FFmpeg",
-        "GSAP",
-        "Web Audio API"
+        "৪টি জাতীয় ইকোসিস্টেমের সমন্বিত একক ইউনিফাইড আর্কিটেকচার",
+        "৩৭টি প্রোডাকশন রুট (Next.js 14 App Router) — সম্পূর্ণ টাইপ-সেফ ও জিরো বিল্ড এরর",
+        "Ecosystem Bridge Bar — তাৎক্ষণিক ১-ক্লিকে যেকোনো পোর্টালে নিরবচ্ছিন্ন ট্রানজিশন",
+        "কঠোর Scoped CSS Isolation — কোনো গ্লোবাল স্টাইল ক্ল্যাশ ছাড়াই নিজস্ব ব্র্যান্ড আইডেন্টিটি",
+        "টিউটর হাব: বিশ্বস্ত গৃহশিক্ষক নিয়োগের মাল্টি-স্টেপ ইন্টারেক্টিভ উইজার্ড ও টিউশন বোর্ড",
+        "স্কিলস একাডেমি: ক্লাস ৫-১০ ও এইচএসসি লাইভ ব্যাচ, রুটিন, মেন্টরিং ও স্পোকেন ইংলিশ",
+        "এক্সাম এরিনা: ৪৭তম বিসিএস, ব্যাংক জবস ও সরকারি পরীক্ষার লাইভ MCQ ও রিয়েল-টাইম OMR",
+        "ক্যারিয়ার হাব: দেশের সর্ববৃহৎ চাকরির সার্কুলার, ফিল্টার এবং Bdjobs Pro অ্যাকাউন্ট ট্র্যাকিং"
       ],
       metrics: [
-        { label: "Render Speed", value: "4x Realtime" },
-        { label: "Resolution", value: "4K 60FPS" },
-        { label: "Automation", value: "100% Headless" }
+        { label: "Production Routes", value: "37" },
+        { label: "Integrated Catalogs", value: "4" },
+        { label: "Type Safety", value: "100%" },
+        { label: "Build Diagnostics", value: "0 Errors" }
+      ],
+      modules: [
+        {
+          title: "টিউটর হাব (Tutor Hub — Caretutors Parity)",
+          subtitle: "Verified Home & Online Tutor Marketplace",
+          description: "অভিভাবকদের জন্য স্টেপ-বাই-স্টেপ গৃহশিক্ষক নিয়োগ ফানেল, ৬৪ জেলার টিউশন বোর্ড, শিক্ষক সাইন-আপ, প্রোফাইল ভেরিফিকেশন এবং টিউটোরিয়াল পোর্টাল।",
+          highlights: [
+            "অভিভাবকদের জন্য দ্রুত শিক্ষক রিক্রুটমেন্ট উইজার্ড",
+            "শিক্ষকদের সরাসরি আবেদন ও রিয়েল-টাইম টিউশন ড্যাশবোর্ড",
+            "বুয়েট, ঢাবি ও মেডিকেলসহ স্বনামধন্য প্রতিষ্ঠানের ভেরিফাইড শিক্ষক নেটওয়ার্ক"
+          ]
+        },
+        {
+          title: "স্কিলস একাডেমি (Skills Academy — 10 Minute School Parity)",
+          subtitle: "Dynamic Learning Hub & Live Batches",
+          description: "কসমিক হিরো সেকশন, ক্লাস ৫-১০ ও এইচএসসি শিক্ষার্থীদের জন্য লাইভ অনলাইন ব্যাচ মেন্টরিং, স্পোকেন ইংলিশ ও ক্যারিয়ার ডেভেলপমেন্ট কোর্স।",
+          highlights: [
+            "ক্লাস ৫ থেকে এইচএসসি পর্যন্ত ডেডিকেটেড রুটিন ও লাইভ ব্যাচ পোর্টাল",
+            "অ্যাডমিশন টেস্ট ও প্রফেশনাল স্কিল ডেভেলপমেন্ট পাথওয়েজ",
+            "১০ মিনিট স্কুলের খাঁটি কালার প্যালেট ও ইন্টারঅ্যাক্টিভ কম্পোনেন্ট আইসোলেশন"
+          ]
+        },
+        {
+          title: "এক্সাম এরিনা (Exam Arena — Live MCQ Parity)",
+          subtitle: "Competitive Exam & Live OMR Evaluation Arena",
+          description: "৪৭তম বিসিএস, ব্যাংক জবস, প্রাইমারি শিক্ষক, NTRCA ও জুডিশিয়াল সার্ভিসের (BJS) জন্য লাইভ প্রতিযোগিতামূলক মডেল টেস্ট ও তাৎক্ষণিক জাতীয় মেরিট র‍্যাংকিং।",
+          highlights: [
+            "লাইভ এক্সাম কাউন্টার ও মিলি-সেকেন্ড অ্যাকুরেসি ওএমআর শিট",
+            "দেশসেরা মেধা তালিকা (National Merit Ranking) ও পারফরম্যান্স অ্যানালিটিক্স",
+            "বিষয়ভিত্তিক আর্কাইভ, প্র্যাকটিস প্রশ্নব্যাংক ও মেন্টরস প্যানেল"
+          ]
+        },
+        {
+          title: "ক্যারিয়ার হাব (Career Hub — Bdjobs Parity)",
+          subtitle: "National Job Circular & Recruitment System",
+          description: "সরকারি, বেসরকারি ও বৈদেশিক চাকরির বিশাল লাইভ ডেটাবেজ, ক্যাটাগরি ফিল্টার, চাকরিপ্রার্থী ও নিয়োগকর্তা পোর্টাল এবং Bdjobs Pro সাবস্ক্রিপশন সুবিধা।",
+          highlights: [
+            "হট জবস ও সরকারি চাকরির সার্কুলার লাইভ ডেটাবেজ",
+            "চাকরিপ্রার্থীদের জন্য প্রফেশনাল সিভি মেকার ও ১-ক্লিক অ্যাপ্লিকেশন",
+            "Bdjobs Pro প্রিমিয়াম ক্যারিয়ার ট্র্যাকিং ও এমপ্লয়ার অ্যানালিটিক্স"
+          ]
+        }
+      ],
+      workflow: [
+        {
+          step: "০১",
+          title: "সমন্বিত জীবনগড়ি পোর্টালে প্রবেশ",
+          desc: "ব্যবহারকারী জীবনগড়ি হোমপেজে এসে তাদের প্রয়োজন অনুযায়ী (টিউটর, একাডেমি, এক্সাম বা ক্যারিয়ার) যেকোনো একটি স্তম্ভ বেছে নেন।"
+        },
+        {
+          step: "০২",
+          title: "১-ক্লিক ইকোসিস্টেম ব্রিজ ট্রানজিশন",
+          desc: "Ecosystem Bridge Bar ব্যবহার করে কোনো পেজ রিলোড বা কনফ্লিক্ট ছাড়াই তাৎক্ষণিকভাবে কাঙ্ক্ষিত প্ল্যাটফর্মে সুইচ করেন।"
+        },
+        {
+          step: "০৩",
+          title: "খাঁটি ইন্টারফেস ও স্বয়ংসম্পূর্ণ সেবা",
+          desc: "টিউটর নিয়োগ, লাইভ ক্লাসে অংশ নেওয়া, বিসিএস মডেল টেস্ট দেওয়া কিংবা চাকরির জন্য আবেদন করার সম্পূর্ণ কার্যপ্রক্রিয়া সম্পন্ন করেন।"
+        },
+        {
+          step: "০৪",
+          title: "লাইফ ড্যাশবোর্ড ও ক্যারিয়ার প্রগ্রেস",
+          desc: "একক প্ল্যাটফর্মে নিজের পড়াশোনার অগ্রগতি, পরীক্ষার রেজাল্ট এবং ক্যারিয়ার ট্র্যাকিংয়ের সমন্বিত রিপোর্ট দেখতে পান।"
+        }
+      ],
+      techStack: [
+        "Next.js 14 (App Router)",
+        "TypeScript (Strict Typing)",
+        "Tailwind CSS & PostCSS",
+        "Custom Scoped CSS Isolation",
+        "Lucide React Icons",
+        "Zustand State Management",
+        "SSR & Static Generation Engine"
       ]
     }
   },
   {
-    id: "sentinel-analytics",
+    id: "coffee-house",
     number: "06",
-    title: "Sentinel Intelligence",
-    subtitle: "Predictive Enterprise Operations & Anomaly Resolver",
-    category: "Business Problem Solver",
-    description: "Autonomous diagnostic engine converting opaque data streams into root-cause solutions and automated remediation.",
-    media: "/videos/project_promax_showcase.mp4",
-    posterImage: "/images/projects/sentinel_analytics-1024x538.jpg",
-    isVideo: true,
-    filterType: "business-solver",
-  },
-  {
-    id: "omni-connect",
-    number: "07",
-    title: "OmniConnect Mobile",
-    subtitle: "Real-Time Distributed Operations Hub, Cross-Platform",
-    category: "Mobile App",
-    description: "Unified cross-platform operations center empowering field engineers with instantaneous telemetry and secure edge execution.",
-    media: "/images/projects/25res-1024x538.jpg",
-    posterImage: "/images/projects/25res-1024x538.jpg",
-    isVideo: false,
-    filterType: "app",
-  },
-  {
-    id: "cortex-workflow",
-    number: "08",
-    title: "Cortex AutoPilot",
-    subtitle: "Neural Workflow Orchestrator & Self-Evolving Pipelines",
-    category: "AI Automation",
-    description: "Self-optimizing autonomous agent fleet capable of continuous reflection, tool synthesis, and zero-touch operations.",
-    media: "/images/projects/hubtown_unseen-1024x538.jpg",
-    posterImage: "/images/projects/hubtown_unseen-1024x538.jpg",
-    isVideo: false,
-    filterType: "ai-automation",
-  },
-  {
-    id: "lumina-visuals",
-    number: "09",
-    title: "Lumina Brand Identity",
-    subtitle: "Dynamic Generative Aesthetics & Motion System",
-    category: "Motion & Film",
-    description: "Parametric brand design system translating algorithmic physics into bespoke visual narratives and broadcast motion.",
-    media: "/images/projects/klook2-1024x538.jpg",
-    posterImage: "/images/projects/klook2-1024x538.jpg",
-    isVideo: false,
-    filterType: "motion-video",
-  },
-  {
-    id: "apex-commerce",
-    number: "10",
-    title: "Apex Cloud Infrastructure",
-    subtitle: "Scalable Micro-Frontend Architecture, Global CDN",
-    category: "Website & Platform",
-    description: "Enterprise multi-tenant digital platform built for millions of concurrent interactions with flawless resilience.",
-    media: "/images/projects/Frame-29-1024x538.jpg",
-    posterImage: "/images/projects/Frame-29-1024x538.jpg",
+    title: "Coffee House (কফি হাউস)",
+    subtitle: "Artisan Specialty Coffee & Boutique Café Web Experience",
+    category: "Specialty Hospitality & Web Experience",
+    description: "A warm, high-converting boutique coffee shop website and sensory hospitality portal crafted with bespoke typography, interactive cafe menus, sensory storytelling, and multi-outlet discovery.",
+    media: "/images/projects/coffee_house_showcase.png",
+    posterImage: "/images/projects/coffee_house_showcase.png",
     isVideo: false,
     filterType: "website",
-  },
-  {
-    id: "clarity-bi",
-    number: "11",
-    title: "Clarity Decision Engine",
-    subtitle: "Executive Strategic Modeling & Scenario Simulator",
-    category: "Business Problem Solver",
-    description: "Monte Carlo predictive modeling tool enabling boardroom executives to stress-test complex market transformations.",
-    media: "/images/projects/Frame-1000004051-1024x538.jpg",
-    posterImage: "/images/projects/Frame-1000004051-1024x538.jpg",
-    isVideo: false,
-    filterType: "business-solver",
-  },
-  {
-    id: "neural-voice",
-    number: "12",
-    title: "Aura Neural Voice",
-    subtitle: "Sub-200ms Conversational Agent & Telephony Backbone",
-    category: "AI Automation",
-    description: "Ultra-low latency bidirectional neural voice interface integrated with telephony and CRM systems.",
-    media: "/images/projects/poly-1024x538.jpg",
-    posterImage: "/images/projects/poly-1024x538.jpg",
-    isVideo: false,
-    filterType: "ai-automation",
+    badge: "Featured Boutique Project",
+    accentColor: "#D97706",
+    liveUrl: "https://sakilahammed-dev.github.io/coffee-house/",
+    githubUrl: "https://github.com/sakilahammed-dev/coffee-house",
+    details: {
+      tagline: "সতেজ কফি ও প্রশান্তির মায়াবী আবহ — প্রিমিয়াম বুটিক ক্যাফে ওয়েব এক্সপেরিয়েন্স",
+      overview: "কফি হাউস (Coffee House) হলো রুচিশীল কফিপ্রেমীদের জন্য শাকিল আহাম্মেদ দ্বারা ডিজাইন ও ডেভেলপ করা একটি আধুনিক, মার্জিত ও নান্দনিক বুটিক ক্যাফে এক্সপেরিয়েন্স প্ল্যাটফর্ম। সতেজ কফির সৌরভ, প্রিমিয়াম রোস্টেড বিন্স এবং উষ্ণ ক্যাফে আবহের অনুপ্রেরণায় তৈরি এই ওয়েব প্ল্যাটফর্মটি ক্লায়েন্টদের জন্য মেনু এক্সপ্লোরেশন, আউটলেট ডিসকভারি এবং ক্যাফে অ্যাম্বিয়েন্সের একটি জীবন্ত ভিজ্যুয়াল অভিজ্ঞতা উপহার দেয়।",
+      vision: "একটি ফিজিক্যাল প্রিমিয়াম ক্যাফের উষ্ণ, আতিথেয়তাপূর্ণ ও রোস্টেড ফ্লেভারের আবহকে ডিজিটাল ইন্টারফেসে হুবহু ফুটিয়ে তোলা, যাতে কাস্টমাররা স্ক্রিনে দেখেই ক্যাফের আসল আভিজাত্য অনুভব করতে পারেন এবং সরাসরি আউটলেটে এসে সুন্দর মুহূর্ত উপভোগ করতে পারেন।",
+      challenge: "সাধারণ রেস্তোরাঁ ও ক্যাফে ওয়েবসাইটগুলো প্রায়শই অতিরিক্ত ভারী, জটিল এবং ধীরগতির হয়ে থাকে, যেখানে মেনু পড়া কঠিন এবং ব্রাউজিং অভিজ্ঞতা অসন্তোষজনক। ক্যাফের আকর্ষণীয় আবহকে অক্ষুণ্ণ রেখে আল্ট্রা-লাইটওয়েট ও রেসপনসিভ রাখা এবং কাস্টমারদের সহজেই আউটলেট লোকেশন ও সরাসরি বুকিংয়ে আকৃষ্ট করা ছিল প্রধান উদ্দেশ্য।",
+      solution: "Playfair Display ও Poppins-এর ক্লাসিক টাইপোগ্রাফি কম্বিনেশন, কাস্টম সিএসএস থিমিং এবং আধুনিক আর্কিটেকচার প্রয়োগ করে অত্যন্ত মসৃণ ও দ্রুতগতির ওয়েব ইন্টারফেস গড়ে তোলা হয়েছে। প্রতিটি সেকশনে (হিরো, ফিচারস, ইন্টারেক্টিভ মেনু, আউটলেটস ও রিভিউ) সুপরিকল্পিত ভিজ্যুয়াল হায়ারার্কি নিশ্চিত করা হয়েছে।",
+      keyFeatures: [
+        "আর্টিসান বুটিক স্টাইলিং ও প্রিমিয়াম ওয়ার্ম অ্যাম্বিয়েন্স কালার প্যালেট",
+        "ফুল রেসপনসিভ ন্যাভিগেশন ও স্মুথ মোবাইল হ্যামবার্গার মেনু",
+        "ইন্টারেক্টিভ ক্যাফে মেনু — স্পেশাল্টি এসপ্রেসো, ক্যাপুচিনো, কোল্ড ব্রু ও স্ন্যাক্স",
+        "মাল্টি-আউটলেট ডিসকভারি ও ১-ক্লিক ডিরেক্ট কল / লোকেশন কানেক্ট",
+        "সেন্সরি স্টোরিটেলিং ও ফটো-রিয়েল ভিজ্যুয়াল গ্যালারি ইন্টারফেস",
+        "ভেরিফাইড কাস্টমার রিভিউ ও ফাইভ-স্টার এক্সপেরিয়েন্স শোকেস"
+      ],
+      metrics: [
+        { label: "Performance Score", value: "99/100" },
+        { label: "Load Time", value: "< 0.4s" },
+        { label: "Responsive Parity", value: "100% Mobile" },
+        { label: "Design Aesthetics", value: "Artisan Boutique" },
+        { label: "Navigation Speed", value: "Instantaneous" },
+        { label: "SEO Readiness", value: "Optimized" }
+      ],
+      modules: [
+        {
+          title: "ইন্টারেক্টিভ মেনু শোকেস (Artisan Menu Showcase)",
+          subtitle: "Curated Specialty Brews & Delicacies",
+          description: "এসপ্রেসো, ক্যাপুচিনো, মোকা, আইসড কোল্ড ব্রু এবং ক্যাফে স্পেশাল ডেজার্টের সুবিন্যস্ত ক্যাটাগরি ও মূল্য তালিকা।",
+          highlights: [
+            "ক্যাটাগরি-ভিত্তিক মসৃণ মেনু ব্রাউজিং এক্সপেরিয়েন্স",
+            "বিশুদ্ধ রোস্টেড বিন্স ও ব্রুইং মেথডের স্বচ্ছ উপস্থাপন",
+            "মোবাইল-ফ্রেন্ডলি ফাস্ট রিডিং কার্ড আর্কিটেকচার"
+          ]
+        },
+        {
+          title: "আউটলেট ও লোকেশন হাব (Outlets & Direct Connect)",
+          subtitle: "Multi-branch Discovery & Contact Engine",
+          description: "ক্যাফের বিভিন্ন শাখা (যেমন: নেত্রকোনা ও ঢাকা), সুনির্দিষ্ট ঠিকানা, খোলার সময় এবং ১-ক্লিক মোবাইল কলিং সুবিধা।",
+          highlights: [
+            "১-ক্লিক ডিরেক্ট কলিং বাটন (Tel Link Integration)",
+            "স্পট লোকেশন ও আউটলেট ফটো গ্যালারি প্রিভিউ",
+            "কাস্টমার সাপোর্ট ও ফ্রেন্ডলি ভিজিটর গাইডেন্স"
+          ]
+        },
+        {
+          title: "ব্র্যান্ড স্টোরি ও অ্যাম্বিয়েন্স (Sensory Storytelling)",
+          subtitle: "Warm Aesthetics & Coffee Passion",
+          description: "সতেজ বিন বাছাই থেকে কাপে গরম কফি পরিবেশনের প্রতিটি ধাপের প্রতি যত্ন ও ভালোবাসার গল্প।",
+          highlights: [
+            "ওয়ার্ম টোনের প্রিমিয়াম গোল্ড ও মোকা কালার প্যালেট",
+            "ফটোগ্রাফি ও মিনিমালিস্ট ইলিমেন্টের নিখুঁত ব্যালান্স",
+            "প্লেফেয়ার ডিসপ্লে ক্লাসিক সেরিফ ও পপিন্স টাইপোগ্রাফি"
+          ]
+        }
+      ],
+      workflow: [
+        {
+          step: "০১",
+          title: "কফি হাউস পোর্টালে আগমন",
+          desc: "ভিজিটর হোমপেজে প্রবেশ করে প্রিমিয়াম অ্যাম্বিয়েন্স ও ওয়েলকাম হিরো সেকশনের ভিজ্যুয়াল আবহ অনুভব করেন।"
+        },
+        {
+          step: "০২",
+          title: "মেনু ও স্পেশাল আইটেম অন্বেষণ",
+          desc: "ইন্টারেক্টিভ মেনু থেকে এসপ্রেসো, ক্যাপুচিনো, কোল্ড ব্রু বা স্ন্যাক্সের বিস্তারিত ও দাম দেখে নেন।"
+        },
+        {
+          step: "০৩",
+          title: "নিকটস্থ আউটলেট নির্বাচন",
+          desc: "আউটলেটস সেকশন থেকে নিকটবর্তী শাখার লোকেশন দেখে সরাসরি ফোনে যোগাযোগ বা ভিজিটের সিদ্ধান্ত নেন।"
+        },
+        {
+          step: "০৪",
+          title: "বাস্তব অভিজ্ঞতা ও রিভিউ",
+          desc: "ক্যাফেতে সরাসরি এসে কফি উপভোগের পাশাপাশি নিজের সন্তুষ্টি ও মতামত শেয়ার করেন।"
+        }
+      ],
+      techStack: [
+        "HTML5 (Semantic Architecture)",
+        "Modern CSS3 (Custom Variables & Grid)",
+        "Vanilla JavaScript (ES6+)",
+        "Google Fonts (Playfair Display & Poppins)",
+        "Responsive Mobile-First Architecture",
+        "GitHub Pages Deployment"
+      ]
+    }
   },
 ];
 
@@ -548,6 +821,8 @@ const fragmentShader = `
   uniform float u_opacity;
   uniform vec2 u_resolution;
   uniform float u_radius;
+  uniform float u_hover;
+  uniform vec3 u_borderColor;
 
   // Signed distance function for smooth anti-aliased rounded box corners (Cuberto cards)
   float roundedBoxSDF(vec2 centerPos, vec2 size, float radius) {
@@ -558,9 +833,10 @@ const fragmentShader = `
   void main() {
     // Anti-aliased rounded corner mask
     float cornerAlpha = 1.0;
+    float d = 0.0;
     if (u_radius > 0.0) {
       vec2 p = (vUv - 0.5) * u_resolution;
-      float d = roundedBoxSDF(p, u_resolution * 0.5, u_radius);
+      d = roundedBoxSDF(p, u_resolution * 0.5, u_radius);
       cornerAlpha = 1.0 - smoothstep(0.0, 1.5, d);
     }
 
@@ -571,7 +847,26 @@ const fragmentShader = `
     float fogFactor = smoothstep(fogNear, fogFar, depth);
 
     // Warm stone / pure white atmosphere fog mixing
-    vec3 finalRgb = mix(texColor.rgb, fogColor, fogFactor);
+    vec3 baseColor = texColor.rgb;
+
+    // Hover exposure & contrast enhancement
+    baseColor = mix(baseColor, baseColor * 1.08 + vec3(0.018), u_hover);
+
+    vec3 finalRgb = mix(baseColor, fogColor, fogFactor);
+
+    // Crisp high-definition selection border & inner rim glow
+    if (u_radius > 0.0 && u_hover > 0.001) {
+      // 4.5px crisp border stroke along the rounded edge
+      float bWidth = 4.5;
+      float borderFactor = smoothstep(-bWidth - 1.2, -bWidth + 0.2, d) * (1.0 - smoothstep(-0.2, 0.8, d));
+      
+      // 28px inner ambient rim glow for soft luxury depth
+      float innerGlow = smoothstep(-28.0, 0.0, d) * 0.12 * u_hover;
+      
+      // High-precision royal electric blue selection border
+      finalRgb = mix(finalRgb, u_borderColor, borderFactor * u_hover * 0.98);
+      finalRgb += u_borderColor * innerGlow;
+    }
 
     // Smooth vanishing as it curves over horizon into deep space
     float alpha = texColor.a * cornerAlpha * smoothstep(1950.0, 1150.0, depth) * u_opacity;
@@ -616,8 +911,14 @@ function createTextTexture(title: string, subtitle: string) {
 export default function UnseenWebGLGallery() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [cursorPos, setCursorPos] = useState({ x: -200, y: -200 });
+  const cursorRef = useRef<HTMLDivElement>(null);
+
+  const targetCursorPos = useRef({ x: -200, y: -200 });
+  const currentCursorPos = useRef({ x: -200, y: -200 });
+
+  const [isInsideSection, setIsInsideSection] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [hoveredProject, setHoveredProject] = useState<ProjectItem | null>(null);
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [layoutKey, setLayoutKey] = useState(0);
 
@@ -641,6 +942,20 @@ export default function UnseenWebGLGallery() {
       }
     };
   }, [selectedProject]);
+
+  // Deep-linking support: Allow direct opening of project modal via ?project=id query param
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const projId = params.get("project");
+      if (projId) {
+        const found = flagshipProjects.find((p) => p.id === projId);
+        if (found) {
+          setSelectedProject(found);
+        }
+      }
+    }
+  }, []);
 
   useEffect(() => {
     // On mobile devices (< 768px), we use the native high-performance responsive mobile feed.
@@ -753,6 +1068,8 @@ export default function UnseenWebGLGallery() {
           u_opacity: { value: 1.0 },
           u_resolution: { value: new THREE.Vector2(cardW, cardH) },
           u_radius: { value: isMobile ? 24.0 : 36.0 },
+          u_hover: { value: 0.0 },
+          u_borderColor: { value: new THREE.Color(proj.accentColor || "#2563EB") },
         },
         transparent: true,
         depthWrite: false,
@@ -760,7 +1077,7 @@ export default function UnseenWebGLGallery() {
       });
 
       const mediaMesh = new THREE.Mesh(cardGeometry, cardMaterial);
-      mediaMesh.userData = { project: proj, parentGroup: cardGroup };
+      mediaMesh.userData = { project: proj, parentGroup: cardGroup, index };
       interactiveMeshes.push(mediaMesh);
       cardGroup.add(mediaMesh);
 
@@ -780,6 +1097,8 @@ export default function UnseenWebGLGallery() {
           u_opacity: { value: 1.0 },
           u_resolution: { value: new THREE.Vector2(cardW, textH) },
           u_radius: { value: 0.0 },
+          u_hover: { value: 0.0 },
+          u_borderColor: { value: new THREE.Color(proj.accentColor || "#2563EB") },
         },
         transparent: true,
         depthWrite: false,
@@ -834,10 +1153,10 @@ export default function UnseenWebGLGallery() {
     // Raycaster for Hover & Click
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2(-999, -999);
+    let isPointerActive = false;
+    let hoveredIndex = -1;
 
     const onPointerMove = (e: MouseEvent) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
-
       const rect = canvas.getBoundingClientRect();
       if (
         e.clientX < rect.left ||
@@ -845,18 +1164,56 @@ export default function UnseenWebGLGallery() {
         e.clientY < rect.top ||
         e.clientY > rect.bottom
       ) {
-        setIsHovered(false);
+        if (isPointerActive) {
+          isPointerActive = false;
+          hoveredIndex = -1;
+          setIsHovered(false);
+          setHoveredProject(null);
+          setIsInsideSection(false);
+        }
         return;
       }
+
+      if (!isPointerActive) {
+        isPointerActive = true;
+        setIsInsideSection(true);
+        if (currentCursorPos.current.x < 0) {
+          currentCursorPos.current = { x: e.clientX, y: e.clientY };
+        }
+      }
+
+      targetCursorPos.current = { x: e.clientX, y: e.clientY };
 
       mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
       mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
 
       raycaster.setFromCamera(mouse, camera);
       const intersects = raycaster.intersectObjects(interactiveMeshes, false);
-      setIsHovered(intersects.length > 0);
+      if (intersects.length > 0) {
+        const hit = intersects[0].object as THREE.Mesh;
+        const hitIdx = hit.userData?.index;
+        const hitProj = hit.userData?.project;
+        if (hoveredIndex !== hitIdx) {
+          hoveredIndex = hitIdx !== undefined ? hitIdx : -1;
+          setIsHovered(true);
+          setHoveredProject(hitProj || null);
+        }
+      } else if (hoveredIndex !== -1) {
+        hoveredIndex = -1;
+        setIsHovered(false);
+        setHoveredProject(null);
+      }
     };
     window.addEventListener("mousemove", onPointerMove);
+
+    const onPointerLeaveWindow = () => {
+      isPointerActive = false;
+      hoveredIndex = -1;
+      setIsHovered(false);
+      setHoveredProject(null);
+      setIsInsideSection(false);
+    };
+    window.addEventListener("mouseleave", onPointerLeaveWindow);
 
     const onClick = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
@@ -893,6 +1250,60 @@ export default function UnseenWebGLGallery() {
       currentScroll += (targetScroll - currentScroll) * 0.14;
       projectsGroup.position.y = currentScroll;
 
+      // Continuous raycast during scroll or animation if mouse is active on screen
+      if (isPointerActive && mouse.x > -1.5 && mouse.x < 1.5 && mouse.y > -1.5 && mouse.y < 1.5) {
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(interactiveMeshes, false);
+        if (intersects.length > 0) {
+          const hit = intersects[0].object as THREE.Mesh;
+          const hitIdx = hit.userData?.index;
+          const hitProj = hit.userData?.project;
+          if (hoveredIndex !== hitIdx) {
+            hoveredIndex = hitIdx !== undefined ? hitIdx : -1;
+            setIsHovered(true);
+            setHoveredProject(hitProj || null);
+          }
+        } else if (hoveredIndex !== -1) {
+          hoveredIndex = -1;
+          setIsHovered(false);
+          setHoveredProject(null);
+        }
+      }
+
+      // Smoothly update hover intensity, 3D elevation and scale for all project cards
+      interactiveMeshes.forEach((mesh, idx) => {
+        const isThisHovered = (hoveredIndex === idx);
+        const targetHover = isThisHovered ? 1.0 : 0.0;
+        const mat = mesh.material as THREE.ShaderMaterial;
+        
+        // Smooth lerp for shader uniform
+        mat.uniforms.u_hover.value += (targetHover - mat.uniforms.u_hover.value) * 0.14;
+        const curHover = mat.uniforms.u_hover.value;
+
+        // 3D elevation towards camera + scale pop
+        mesh.position.z = curHover * 42.0;
+        const scaleVal = 1.0 + curHover * 0.038;
+        mesh.scale.set(scaleVal, scaleVal, 1.0);
+
+        // Sync elevation of text mesh in parent group
+        const parent = mesh.userData?.parentGroup as THREE.Group;
+        if (parent) {
+          const textChild = parent.children.find((c) => c !== mesh);
+          if (textChild) {
+            textChild.position.z = curHover * 24.0;
+          }
+        }
+      });
+
+      // Smooth cursor position interpolation at 60-120fps
+      if (isPointerActive) {
+        currentCursorPos.current.x += (targetCursorPos.current.x - currentCursorPos.current.x) * 0.22;
+        currentCursorPos.current.y += (targetCursorPos.current.y - currentCursorPos.current.y) * 0.22;
+        if (cursorRef.current) {
+          cursorRef.current.style.transform = `translate3d(${currentCursorPos.current.x}px, ${currentCursorPos.current.y}px, 0)`;
+        }
+      }
+
       renderer.render(scene, camera);
     };
 
@@ -902,6 +1313,7 @@ export default function UnseenWebGLGallery() {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("mousemove", onPointerMove);
+      window.removeEventListener("mouseleave", onPointerLeaveWindow);
       canvas.removeEventListener("click", onClick);
       canvas.removeEventListener("webglcontextlost", onContextLost);
       texturesToDispose.forEach((t) => t.dispose());
@@ -929,12 +1341,12 @@ export default function UnseenWebGLGallery() {
             <div
               key={proj.id}
               onClick={() => setSelectedProject(proj)}
-              className="group cursor-pointer active:scale-[0.98] transition-all duration-200"
+              className="group cursor-pointer active:scale-[0.98] transition-all duration-300"
             >
               {/* Card Artwork Box */}
-              <div className="relative w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#F0F2F5] border border-[#1C1D20]/8 shadow-[0_10px_28px_rgba(0,0,0,0.06)] flex flex-col justify-between">
+              <div className="relative w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#F0F2F5] border border-[#1C1D20]/10 shadow-[0_10px_28px_rgba(0,0,0,0.06)] group-hover:border-[#2563EB] group-hover:ring-2 group-hover:ring-[#2563EB]/40 group-hover:shadow-[0_20px_45px_rgba(37,99,235,0.18)] group-hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
                 {/* Minimalist editorial header for website projects */}
-                {proj.filterType === "website" && proj.id !== "al-muallim-os" && (
+                {proj.filterType === "website" && proj.id !== "al-muallim-os" && proj.id !== "tutorbari" && proj.id !== "ss-iqra-pure-food" && proj.id !== "jibongori" && proj.id !== "coffee-house" && (
                   <div className="absolute top-0 inset-x-0 z-10 flex items-center justify-between px-4 py-2 bg-white/95 backdrop-blur-md border-b border-[#111111]/8">
                     <span className="text-[10px] font-mono text-[#555555] tracking-widest uppercase">
                       {proj.id === "unnoto-khabar" ? "Live Platform" : "Web Platform"}
@@ -949,7 +1361,7 @@ export default function UnseenWebGLGallery() {
                   src={proj.posterImage || proj.media}
                   alt={proj.title}
                   className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${
-                    proj.filterType === "website" && proj.id !== "al-muallim-os" ? "pt-7" : ""
+                    proj.filterType === "website" && proj.id !== "al-muallim-os" && proj.id !== "tutorbari" && proj.id !== "ss-iqra-pure-food" && proj.id !== "jibongori" && proj.id !== "coffee-house" ? "pt-7" : ""
                   }`}
                   loading="lazy"
                 />
@@ -960,14 +1372,14 @@ export default function UnseenWebGLGallery() {
                 </div>
 
                 {/* Floating Action Arrow */}
-                <div className="absolute bottom-3.5 right-3.5 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md text-[#111111] flex items-center justify-center text-sm font-bold shadow-sm group-hover:bg-[#111111] group-hover:text-white transition-colors duration-200">
+                <div className="absolute bottom-3.5 right-3.5 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md text-[#111111] flex items-center justify-center text-sm font-bold shadow-sm group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-110 transition-all duration-300">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
 
               {/* Card Typography Meta */}
               <div className="pt-3 px-1 space-y-1">
-                <h3 className="text-xl sm:text-2xl font-bold text-[#111111] tracking-tight group-hover:text-[#2563EB] transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#111111] tracking-tight group-hover:text-[#2563EB] transition-colors duration-200">
                   {proj.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#666666] leading-relaxed line-clamp-1">
@@ -984,12 +1396,18 @@ export default function UnseenWebGLGallery() {
       {/* ========================================================================= */}
       <div
         ref={sectionRef}
-        className="hidden md:block relative w-full h-[210vh] bg-white select-none"
+        onMouseEnter={() => setIsInsideSection(true)}
+        onMouseLeave={() => {
+          setIsInsideSection(false);
+          setIsHovered(false);
+          setHoveredProject(null);
+        }}
+        className="hidden md:block relative w-full h-[210vh] bg-white select-none cursor-none"
       >
         {/* Sticky 100vh Viewport Container */}
-        <div className="sticky top-0 h-[100dvh] w-full overflow-hidden flex flex-col justify-between bg-white">
+        <div className="sticky top-0 h-[100dvh] w-full overflow-hidden flex flex-col justify-between bg-white cursor-none">
           {/* Top Header */}
-          <div className="relative z-20 pt-28 sm:pt-32 md:pt-28 lg:pt-24 pb-8 text-center max-w-4xl mx-auto px-4 pointer-events-auto bg-gradient-to-b from-white via-white/95 to-transparent">
+          <div className="relative z-20 pt-28 sm:pt-32 md:pt-28 lg:pt-24 pb-8 text-center max-w-4xl mx-auto px-4 pointer-events-auto bg-gradient-to-b from-white via-white/95 to-transparent cursor-default">
             <h2 className="text-[44px] sm:text-[58px] md:text-[68px] lg:text-[76px] font-normal tracking-[-0.035em] text-[#111111] leading-none font-sans">
               My projects
             </h2>
@@ -999,21 +1417,55 @@ export default function UnseenWebGLGallery() {
           <canvas
             ref={canvasRef}
             style={{ width: "100%", height: "100%" }}
-            className="absolute inset-0 w-full h-full z-10 pointer-events-auto cursor-pointer"
+            className="absolute inset-0 w-full h-full z-10 pointer-events-auto cursor-none"
           />
 
-          {/* Dennis Snellenberg / Cuberto Floating Magnetic Cursor */}
+          {/* ========================================================================= */}
+          {/* BESPOKE LUXURY CUSTOM CURSOR & MAGNETIC SELECTION BADGE                   */}
+          {/* ========================================================================= */}
           <div
-            style={{
-              transform: `translate3d(${cursorPos.x - 48}px, ${cursorPos.y - 48}px, 0)`,
-            }}
-            className={`pointer-events-none fixed z-50 w-24 h-24 rounded-full bg-[#111111] text-white flex items-center justify-center shadow-2xl transition-all duration-200 ${
-              isHovered ? "opacity-100 scale-100" : "opacity-0 scale-50"
+            ref={cursorRef}
+            className={`pointer-events-none fixed top-0 left-0 z-50 transition-opacity duration-200 ${
+              isInsideSection && !selectedProject ? "opacity-100" : "opacity-0"
             }`}
+            style={{
+              transform: "translate3d(-200px, -200px, 0)",
+              willChange: "transform",
+            }}
           >
-            <span className="text-[12px] font-medium tracking-wider flex items-center gap-1 uppercase select-none">
-              EXPLORE <span className="text-sm">↗</span>
-            </span>
+            {/* 1. RESTING STATE: Precision Aim Micro-Dot & Delicate Follower Ring */}
+            <div
+              className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out flex items-center justify-center ${
+                isHovered ? "opacity-0 scale-50 pointer-events-none" : "opacity-100 scale-100"
+              }`}
+            >
+              <div className="w-9 h-9 rounded-full border border-[#111111]/35 bg-black/[0.04] backdrop-blur-[1px]" />
+              <div className="absolute w-2 h-2 rounded-full bg-[#111111]" />
+            </div>
+
+            {/* 2. HOVERED STATE: Magnetic Luxury Project Selection Badge */}
+            <div
+              className={`absolute -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-[#0D0E12]/95 backdrop-blur-xl border shadow-[0_24px_50px_rgba(0,0,0,0.4)] text-white flex flex-col items-center justify-center p-3 select-none transition-all duration-300 cubic-bezier(0.16,1,0.3,1) ${
+                isHovered ? "opacity-100 scale-100" : "opacity-0 scale-40 pointer-events-none"
+              }`}
+              style={{
+                borderColor: hoveredProject?.accentColor ? `${hoveredProject.accentColor}66` : "rgba(255,255,255,0.2)",
+                boxShadow: hoveredProject?.accentColor ? `0 24px 50px rgba(0,0,0,0.5), 0 0 24px ${hoveredProject.accentColor}44` : "0 24px 50px rgba(0,0,0,0.4)"
+              }}
+            >
+              {/* Eyebrow: Project Number */}
+              <span className="text-[10px] font-mono tracking-[0.2em] text-[#9CA3AF] uppercase">
+                {hoveredProject ? `PROJ • ${hoveredProject.number}` : "EXPLORE"}
+              </span>
+              {/* Main Action Text */}
+              <span className="text-[13px] font-bold tracking-[0.1em] text-white flex items-center gap-1 my-0.5">
+                OPEN <span className="text-sm font-normal" style={{ color: hoveredProject?.accentColor || "#60A5FA" }}>↗</span>
+              </span>
+              {/* Subtitle */}
+              <span className="text-[9px] font-mono tracking-wider uppercase" style={{ color: hoveredProject?.accentColor || "#60A5FA" }}>
+                VIEW CASE
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -1191,7 +1643,8 @@ export default function UnseenWebGLGallery() {
                     href={selectedProject.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-7 py-3 rounded-full bg-[#111111] text-white text-sm font-medium hover:bg-[#2563EB] transition-colors tracking-wide cursor-pointer"
+                    style={{ backgroundColor: selectedProject.accentColor || "#111111" }}
+                    className="px-7 py-3 rounded-full text-white text-sm font-medium hover:opacity-90 transition-opacity tracking-wide cursor-pointer shadow-md"
                   >
                     লাইভ ওয়েবসাইট দেখুন ↗
                   </a>

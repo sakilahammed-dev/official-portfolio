@@ -9,20 +9,20 @@ export default function FantasyPortalHero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Step 1 (0s to 1.5s): Center Name "SAKIL AHAMMED" glides in from the right
+    // Step 1 (0s to 1.1s): Center Name "SAKIL AHAMMED" glides in from the right
     const t1 = setTimeout(() => {
       setIntroStep("emblem");
-    }, 1500);
+    }, 1100);
 
-    // Step 2 (1.5s to 3.4s): Star floats with full clarity & red light actively swirls around it
+    // Step 2 (1.1s to 1.85s): 4-cornered star fills up rapidly & red light swirls briskly
     const t2 = setTimeout(() => {
       setIntroStep("bloom");
-    }, 3400);
+    }, 1850);
 
-    // Step 3 (3.4s to 4.6s): Red bloom washes across screen & Sakil portrait emerges
+    // Step 3 (1.85s to 2.5s): Red bloom washes across screen & Sakil portal opens fast
     const t3 = setTimeout(() => {
       setIntroStep("done");
-    }, 4600);
+    }, 2500);
 
     return () => {
       clearTimeout(t1);
@@ -59,20 +59,20 @@ export default function FantasyPortalHero() {
               initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className={`fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden pointer-events-none select-none transition-colors duration-700 ${
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className={`fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden pointer-events-none select-none transition-colors duration-500 ${
                 introStep === "bloom" ? "bg-transparent" : "bg-black"
               }`}
             >
               <AnimatePresence mode="wait">
-                {/* STEP 1: INITIAL CENTER NAME GLIDING IN FROM RIGHT (0s to 1.5s) */}
+                {/* STEP 1: INITIAL CENTER NAME GLIDING IN FROM RIGHT (0s to 1.1s) */}
                 {introStep === "name" && (
                   <motion.div
                     key="step-name"
                     initial={{ opacity: 0, x: 90 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -50 }}
-                    transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                     className="absolute inset-0 flex items-center justify-center text-center px-6"
                   >
                     <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-sans uppercase font-medium tracking-[0.42em] select-none drop-shadow-[0_0_35px_rgba(255,255,255,0.7)]">
@@ -81,7 +81,7 @@ export default function FantasyPortalHero() {
                   </motion.div>
                 )}
 
-                {/* STEP 2 & 3: EXACT 4-LOBED SQUIRCLE WITH SWIRLING RED LIGHT (1.5s to 3.4s) */}
+                {/* STEP 2 & 3: EXACT 4-LOBED SQUIRCLE WITH RAPID SWIRLING RED LIGHT (1.1s to 1.85s) */}
                 {(introStep === "emblem" || introStep === "bloom") && (
                   <motion.div
                     key="step-emblem-container"
@@ -90,17 +90,17 @@ export default function FantasyPortalHero() {
                       introStep === "emblem"
                         ? {
                             opacity: 1,
-                            scale: [0.92, 1.04, 0.98, 1],
+                            scale: [0.92, 1.05, 1],
                             transition: {
-                              opacity: { duration: 0.45 },
-                              scale: { duration: 1.6, ease: "easeInOut" },
+                              opacity: { duration: 0.25 },
+                              scale: { duration: 0.7, ease: "easeInOut" },
                             },
                           }
                         : {
                             scale: [1, 2.6, 8],
                             opacity: [1, 0.85, 0],
                             filter: ["blur(0px)", "blur(12px)", "blur(35px)"],
-                            transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+                            transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
                           }
                     }
                     className="relative flex items-center justify-center"
@@ -112,7 +112,7 @@ export default function FantasyPortalHero() {
                           ? {
                               scale: [1, 3.5, 9],
                               opacity: [0.55, 0.95, 0],
-                              transition: { duration: 1.2, ease: "easeOut" },
+                              transition: { duration: 0.65, ease: "easeOut" },
                             }
                           : {
                               scale: 1,
@@ -150,7 +150,7 @@ export default function FantasyPortalHero() {
                 opacity: [1, 0.85, 0],
                 filter: ["blur(0px)", "blur(14px)", "blur(40px)"],
               }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
               className="fixed inset-0 z-[9990] flex items-center justify-center pointer-events-none overflow-hidden"
             >
               <div className="relative w-96 sm:w-[520px] h-96 sm:h-[520px] flex items-center justify-center">
@@ -197,7 +197,7 @@ export default function FantasyPortalHero() {
             animate={{
               opacity: introStep === "bloom" || introStep === "done" ? 1 : 0,
             }}
-            transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full h-full flex items-end justify-center"
           >
             {/* Atmospheric Studio Backlight (Crimson & Cyan Studio Glow) */}
