@@ -12,7 +12,7 @@ export default function ResumeSection() {
   ];
 
   const highlights = [
-    "Full-Stack AI Automation & Autonomous Operations Architect",
+    "Full-Stack AI & Automation Architect",
     "Specialized in zero-failover enterprise workflow automation",
     "Pioneering multi-agent collaborative neural taskforce pipelines",
     "Root-cause resilience with deterministic self-healing protocols",
@@ -44,7 +44,7 @@ export default function ResumeSection() {
                 <span className="font-mono text-xs text-text-muted uppercase tracking-wider">OFFICIAL TITLE</span>
                 <h3 className="text-2xl font-bold text-white">Sakil Ahammed</h3>
                 <p className="text-sm font-mono text-brand-cyan">
-                  Full-Stack AI Automation &amp; Autonomous Operations Architect
+                  Full-Stack AI &amp; Automation Architect
                 </p>
               </div>
 

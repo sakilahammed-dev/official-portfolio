@@ -110,7 +110,7 @@ function generateNotificationHtml(data: {
 
     <!-- Footer -->
     <div style="border-top: 1px solid #1f2937; padding: 16px 28px; background-color: #0d131f; font-size: 11px; color: #6b7280; text-align: center;">
-      Sakil Ahammed • Full-Stack AI Automation & Autonomous Operations Architect<br>
+      Sakil Ahammed • Full-Stack AI & Automation Architect<br>
       Portfolio Contact Gateway • Automatic Lifetime Setup
     </div>
 

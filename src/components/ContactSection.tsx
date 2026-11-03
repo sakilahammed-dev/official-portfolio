@@ -231,19 +231,19 @@ export default function ContactSection() {
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/sakilahammed-ai/",
       icon: Linkedin,
       hoverColor: "hover:text-[#0A66C2] hover:border-[#0A66C2]/30 hover:shadow-[0_8px_20px_rgba(10,102,194,0.18)]",
     },
     {
       name: "Facebook",
-      href: "https://www.facebook.com/profile.php?id=61593307638016",
+      href: "https://www.facebook.com/sakilahammedai",
       icon: Facebook,
       hoverColor: "hover:text-[#1877F2] hover:border-[#1877F2]/30 hover:shadow-[0_8px_20px_rgba(24,119,242,0.18)]",
     },
     {
       name: "Instagram",
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/sakilahammed.ai/",
       icon: Instagram,
       hoverColor: "hover:text-[#E4405F] hover:border-[#E4405F]/30 hover:shadow-[0_8px_20px_rgba(228,64,95,0.18)]",
     },
@@ -301,7 +301,7 @@ export default function ContactSection() {
                   Sakil Ahammed
                 </h3>
                 <span className="text-sm sm:text-[15px] font-semibold text-[#2563EB] block tracking-wide">
-                  Full-Stack AI Automation &amp; Autonomous Operations Architect
+                  Full-Stack AI &amp; Automation Architect
                 </span>
                 <p className="text-[14px] sm:text-[15px] text-[#555962] leading-relaxed pt-2 font-normal">
                   Specializing in deterministic multi-agent swarms, self-healing workflow pipelines, and enterprise AI automation. Grounded in Sidq (Truthfulness) &amp; Amanah (Trust) to deliver root-cause solutions for business growth and humanity.
@@ -621,7 +621,7 @@ export default function ContactSection() {
               SAKIL AHAMMED
             </h3>
             <p className="text-xs sm:text-[14px] text-[#2563EB] font-semibold tracking-wider">
-              Full-Stack AI Automation &amp; Autonomous Operations Architect
+              Full-Stack AI &amp; Automation Architect
             </p>
             <p className="text-xs text-[#7E8490] tracking-widest uppercase font-mono pt-0.5">
               Rapid Learner • Deep Resilience • Tech for Business Growth &amp; Humanity

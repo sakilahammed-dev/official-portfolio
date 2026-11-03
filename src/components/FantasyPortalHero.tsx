@@ -222,18 +222,19 @@ export default function FantasyPortalHero() {
             </div>
 
             {/* Central Stage: Pure Transparent Cutout of Sakil Elevated Comfortably on Mobile */}
-            <div className="absolute bottom-2 sm:bottom-0 left-1/2 -translate-x-1/2 w-full max-w-xl sm:max-w-2xl h-[82vh] sm:h-[84vh] max-h-[850px] flex items-end justify-center z-20 pointer-events-none -translate-y-6 sm:translate-y-0 scale-[1.04] sm:scale-100 origin-bottom transition-transform duration-300">
+            <div className="absolute bottom-2 sm:bottom-0 left-1/2 -translate-x-1/2 w-full max-w-xl sm:max-w-2xl h-[82vh] sm:h-[84vh] max-h-[850px] flex items-end justify-center z-20 pointer-events-none -translate-y-6 sm:translate-y-0 scale-[1.04] sm:scale-100 origin-bottom">
               <motion.img
-                initial={{ opacity: 0, scale: 0.88, y: 35 }}
+                initial={{ opacity: 0 }}
                 animate={{
                   opacity: introStep === "bloom" || introStep === "done" ? 1 : 0,
-                  scale: introStep === "bloom" || introStep === "done" ? 1 : 0.88,
-                  y: introStep === "bloom" || introStep === "done" ? 0 : 35,
-                  x: mousePos.x * 12,
+                  x: introStep === "done" ? mousePos.x * 10 : 0,
                 }}
-                transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{
+                  opacity: { duration: 0.8, ease: "easeOut" },
+                  x: { type: "spring", stiffness: 60, damping: 20 },
+                }}
                 src="/images/sakil_cutout.png"
-                alt="Sakil Ahammed • Full-Stack AI Automation & Autonomous Operations Architect"
+                alt="Sakil Ahammed • Full-Stack AI & Automation Architect"
                 className="relative z-20 h-full w-auto object-contain object-bottom drop-shadow-[0_25px_60px_rgba(0,0,0,0.95)]"
                 style={{
                   maskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",

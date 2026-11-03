@@ -12,8 +12,24 @@ import {
   UserCheck,
   BookOpen,
   MessageSquare,
+  PlayCircle,
   X,
 } from "lucide-react";
+
+// =========================================================================
+// GOOGLE DRIVE MOTION & VIDEO GALLERY FOLDER LINK
+// (Sakil: Google Drive video showcase folder)
+// =========================================================================
+export const GOOGLE_DRIVE_GALLERY_URL =
+  "https://drive.google.com/drive/folders/1iIMpTQtLcDNYmawiO0j4KN9us1o44Iia?usp=sharing";
+
+interface NavItem {
+  id: string;
+  label: string;
+  href: string;
+  icon: any;
+  isExternal?: boolean;
+}
 
 interface NavbarProps {
   className?: string;
@@ -25,19 +41,41 @@ export default function Navbar({ className = "" }: NavbarProps) {
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Items from Screenshot 2 (Personal Portfolio Structure)
-  // "About" is positioned right after "Projects" as requested
-  const navItems = [
-    { id: "home", label: "Home", href: "#home", icon: Home },
-    { id: "features", label: "Features", href: "#features", icon: Briefcase },
-    { id: "portfolio", label: "Projects", href: "#portfolio", icon: Layers },
-    { id: "about", label: "About", href: "#about", icon: User },
+  // Navigation Items
+  // "Gallery" opens the dedicated high-performance Cinema Video Showcase page (/gallery)
+  const navItems: NavItem[] = [
+    { id: "home", label: "Home", href: "/#home", icon: Home },
+    { id: "features", label: "Features", href: "/#features", icon: Briefcase },
+    { id: "portfolio", label: "Projects", href: "/#portfolio", icon: Layers },
+    { id: "gallery", label: "Gallery", href: "/gallery", icon: PlayCircle },
+    { id: "about", label: "About", href: "/#about", icon: User },
   ];
 
-  const allItemsWithContact = [
+  const allItemsWithContact: NavItem[] = [
     ...navItems,
-    { id: "contact", label: "Contact", href: "#contact", icon: MessageSquare },
+    { id: "contact", label: "Contact", href: "/#contact", icon: MessageSquare },
   ];
+
+  // Smooth scroll handler without polluting URL hash (keeps refresh always landing on Home)
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
+    if (href.startsWith("/#") || href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.replace(/^\/?#/, "");
+      setActiveNav(id);
+      setIsMobileMenuOpen(false);
+      const el = document.getElementById(targetId);
+      if (el) {
+        if ((window as any).lenis) {
+          (window as any).lenis.scrollTo(el, {
+            offset: targetId === "home" ? 0 : -30,
+            duration: 1.2,
+          });
+        } else {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  };
 
   // ScrollSpy & Sticky Background Blur
   useEffect(() => {
@@ -73,7 +111,11 @@ export default function Navbar({ className = "" }: NavbarProps) {
       >
         <div className="w-full max-w-[1720px] mx-auto px-8 sm:px-14 flex items-center justify-between">
           {/* Brand Logo & Name (Left Side) */}
-          <a href="#home" className="flex items-center gap-3.5 group select-none shrink-0">
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick(e, "#home", "home")}
+            className="flex items-center gap-3.5 group select-none shrink-0"
+          >
             <div className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center">
               <svg
                 className="w-full h-full text-white transition-transform duration-700 group-hover:rotate-90"
@@ -102,8 +144,12 @@ export default function Navbar({ className = "" }: NavbarProps) {
                   <a
                     key={item.id}
                     href={item.href}
+                    target={item.isExternal ? "_blank" : undefined}
+                    rel={item.isExternal ? "noopener noreferrer" : undefined}
                     onMouseEnter={() => setHoveredNav(item.id)}
-                    onClick={() => setActiveNav(item.id)}
+                    onClick={(e) => {
+                      if (!item.isExternal) handleNavClick(e, item.href, item.id);
+                    }}
                     className="group relative px-4 py-2 rounded-full text-[14px] xl:text-[15px] font-semibold tracking-normal select-none transition-all duration-300 cursor-pointer flex items-center justify-center"
                   >
                     {/* CUBERTO SIGNATURE ROUNDED WHITE HOVER PILL ("গোল হয়ে পুরো ক্যাটালগটা হোয়াইট হয়ে যায়") */}
@@ -156,7 +202,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
             {/* Cuberto High-Contrast [ Contacts ] Pill with Rolling Text Wave */}
             <a
               href="#contact"
-              onClick={() => setActiveNav("contact")}
+              onClick={(e) => handleNavClick(e, "#contact", "contact")}
               className={`group relative inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer select-none overflow-hidden ${
                 activeNav === "contact"
                   ? "bg-white text-black shadow-[0_0_25px_rgba(255,255,255,0.5)] ring-2 ring-white/40"
@@ -238,9 +284,14 @@ export default function Navbar({ className = "" }: NavbarProps) {
                     <motion.a
                       key={item.id}
                       href={item.href}
-                      onClick={() => {
-                        setActiveNav(item.id);
-                        setIsMobileMenuOpen(false);
+                      target={item.isExternal ? "_blank" : undefined}
+                      rel={item.isExternal ? "noopener noreferrer" : undefined}
+                      onClick={(e) => {
+                        if (!item.isExternal) {
+                          handleNavClick(e, item.href, item.id);
+                        } else {
+                          setIsMobileMenuOpen(false);
+                        }
                       }}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}

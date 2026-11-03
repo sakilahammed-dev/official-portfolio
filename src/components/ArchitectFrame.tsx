@@ -106,7 +106,7 @@ export default function ArchitectFrame({ photoSrc }: ArchitectFrameProps) {
                   SAKIL AHAMMED
                 </h4>
                 <p className="text-xs text-text-secondary max-w-xs font-light">
-                  Full-Stack AI Automation &amp; Autonomous Operations Architect
+                  Full-Stack AI &amp; Automation Architect
                 </p>
               </div>
 

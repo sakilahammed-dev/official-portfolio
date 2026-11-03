@@ -87,7 +87,7 @@ export default function Hero() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
               src="/images/sakil.jpg"
-              alt="Sakil Ahammed • Full-Stack AI Automation & Autonomous Operations Architect"
+              alt="Sakil Ahammed • Full-Stack AI & Automation Architect"
               className="relative z-10 max-h-full w-auto object-contain object-bottom drop-shadow-[0_25px_60px_rgba(0,0,0,0.95)]"
             />
 
@@ -125,7 +125,7 @@ export default function Hero() {
               Lead by Autonomous Intelligence
             </h1>
             <p className="text-xs sm:text-sm text-text-secondary/80 font-light">
-              Full-Stack AI Automation &amp; Autonomous Operations Architect
+              Full-Stack AI &amp; Automation Architect
             </p>
           </div>
 

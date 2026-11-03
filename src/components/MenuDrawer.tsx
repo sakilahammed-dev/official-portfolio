@@ -20,7 +20,7 @@ export default function MenuDrawer({ isOpen, onClose }: MenuDrawerProps) {
 
   const socials = [
     { name: "GitHub", href: "https://github.com", icon: Github },
-    { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/sakilahammed-ai/", icon: Linkedin },
     { name: "Twitter / X", href: "https://x.com", icon: Twitter },
     { name: "Email", href: "mailto:sakil.ahammed.dev@gmail.com", icon: Mail },
   ];
@@ -119,7 +119,7 @@ export default function MenuDrawer({ isOpen, onClose }: MenuDrawerProps) {
                 <span className="font-medium tracking-wide">DHAKA, BANGLADESH • AVAILABLE WORLDWIDE</span>
               </div>
               <p className="text-[11px] text-white/40">
-                Full-Stack AI Automation &amp; Autonomous Operations Architect
+                Full-Stack AI &amp; Automation Architect
               </p>
             </div>
 

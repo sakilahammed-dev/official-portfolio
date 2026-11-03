@@ -1327,13 +1327,10 @@ export default function UnseenWebGLGallery() {
       {/* 1. MOBILE NATIVE PROJECT FEED (SCREEN WIDTH < 768px)                      */}
       {/* Eliminates WebGL context issues, gives ultra-crisp responsive cards       */}
       {/* ========================================================================= */}
-      <div className="block md:hidden w-full bg-white text-[#111111] pt-20 sm:pt-28 pb-16 px-4 sm:px-6 select-none">
+      <div className="block md:hidden w-full bg-white text-[#111111] pt-20 sm:pt-24 pb-14 px-4 sm:px-6 select-none">
         {/* Mobile Header */}
-        <div className="text-center pb-8 sm:pb-10 max-w-lg mx-auto">
-          <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#777777] block mb-2">
-            Selected Works • ফ্ল্যাগশিপ প্রজেক্টস
-          </span>
-          <h2 className="text-[34px] sm:text-[44px] font-medium tracking-[-0.035em] text-[#111111] leading-tight font-sans">
+        <div className="text-center pb-6 sm:pb-8 max-w-lg mx-auto">
+          <h2 className="text-[38px] sm:text-[52px] font-normal tracking-[-0.035em] text-[#111111] leading-tight font-sans">
             My projects
           </h2>
         </div>
@@ -1429,11 +1426,8 @@ export default function UnseenWebGLGallery() {
         {/* Sticky 100vh Viewport Container */}
         <div className="sticky top-0 h-[100dvh] w-full overflow-hidden flex flex-col justify-between bg-white cursor-none">
           {/* Top Header (Clean, solid white header bar, zero dark smudges) */}
-          <div className="relative z-20 w-full pt-14 pb-4 text-center bg-white border-b border-black/[0.04] pointer-events-none cursor-default">
-            <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#777777] block mb-1 pointer-events-auto">
-              Selected Works • ফ্ল্যাগশিপ প্রজেক্টস
-            </span>
-            <h2 className="text-[38px] sm:text-[46px] md:text-[52px] font-medium tracking-[-0.035em] text-[#111111] leading-none font-sans pointer-events-auto">
+          <div className="relative z-20 w-full pt-20 sm:pt-24 md:pt-[102px] pb-4 sm:pb-5 text-center bg-white border-b border-black/[0.04] pointer-events-none cursor-default">
+            <h2 className="text-[38px] sm:text-[52px] md:text-[64px] lg:text-[76px] font-normal tracking-[-0.035em] text-[#111111] leading-none font-sans pointer-events-auto">
               My projects
             </h2>
           </div>

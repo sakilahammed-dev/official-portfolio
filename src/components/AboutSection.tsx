@@ -72,7 +72,7 @@ export default function AboutSection() {
             <div className="single-about-image relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.08)] bg-[#EBEBEF] aspect-[4/5] max-w-2xl group border border-[#1C1D20]/10">
               <img
                 src="/images/sakil_about.jpg"
-                alt="Sakil Ahammed — Full-Stack AI Automation & Autonomous Operations Architect"
+                alt="Sakil Ahammed — Full-Stack AI & Automation Architect"
                 className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
             </div>

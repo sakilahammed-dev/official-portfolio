@@ -35,11 +35,12 @@ const neueMontreal = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Sakil Ahammed • Full-Stack AI Automation & Autonomous Operations Architect",
+  title: "Sakil Ahammed • Full-Stack AI & Automation Architect",
   description:
     "Engineering resilient autonomous AI ecosystems, intelligent multi-agent swarms, and enterprise workflow architectures that scale businesses with precision and ethics.",
   keywords: [
     "Sakil Ahammed",
+    "Full-Stack AI & Automation Architect",
     "AI Automation Architect",
     "Autonomous Operations",
     "Multi-Agent Systems",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://sakilahammed.com",
-    title: "Sakil Ahammed • Full-Stack AI Automation & Autonomous Operations Architect",
+    title: "Sakil Ahammed • Full-Stack AI & Automation Architect",
     description:
       "Engineering resilient autonomous AI ecosystems and enterprise workflow architectures.",
     siteName: "Sakil Ahammed Portfolio",
