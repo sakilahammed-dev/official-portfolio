@@ -8,14 +8,14 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=for-the-badge&logo=tailwind-css)
 ![Security](https://img.shields.io/badge/Strix_Audit-Passed-10b981?style=for-the-badge&logo=shield)
 
-**Full-Stack AI Automation & Autonomous Operations Architect**  
+**Full-Stack AI & Automation Architect**  
 *Dhaka, Bangladesh • Available Worldwide*
 
 </div>
 
 ---
 
-## 🌟 Executive Overview
+## Executive Overview
 This is the official flagship portfolio of **Sakil Ahammed**, engineered with cutting-edge frontend WebGL technology, high-speed micro-interactions, and deterministic backend pipelines.
 
 ### Core Superpowers:
@@ -25,7 +25,7 @@ This is the official flagship portfolio of **Sakil Ahammed**, engineered with cu
 
 ---
 
-## 🚀 Key Architectures & Features
+## Key Architectures & Features
 
 - **Cuberto & Unseen-Style 3D WebGL Gallery:** High-performance cylindrical carousel with custom GLSL shaders and smooth lerp scrolling on desktop; native 120Hz touch cards for mobile.
 - **Dennis Snellenberg Editorial About Section:** Minimalist typography, dual-column editorial layout, and floating executive portrait.
@@ -35,7 +35,7 @@ This is the official flagship portfolio of **Sakil Ahammed**, engineered with cu
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework:** Next.js 15.3.9 (App Router, Server Components)
 - **Language:** TypeScript 5.9
@@ -46,7 +46,7 @@ This is the official flagship portfolio of **Sakil Ahammed**, engineered with cu
 
 ---
 
-## 💻 Local Development
+## Local Development
 
 Clone the repository and install dependencies:
 
@@ -69,7 +69,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📬 Contact & Connect
+## Contact & Connect
 
 - **Email:** [sakilahammed114@gmail.com](mailto:sakilahammed114@gmail.com)
 - **Phone / WhatsApp:** [+880 1763838194](https://wa.me/8801763838194)
