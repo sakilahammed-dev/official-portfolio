@@ -1021,6 +1021,14 @@ export default function UnseenWebGLGallery() {
     const textH = isMobile ? 44 : 50;
     const rowH = cardH + textH + gapY;
 
+    // Viewport-adaptive elevation: Elevates projects directly below "My projects" header,
+    // eliminating excessive dead white gap while maintaining an exquisite 26px breathing room.
+    const visibleH = 2 * Math.tan((50 * Math.PI) / 360) * 1000;
+    const unitsPerPx = visibleH / Math.max(height, 600);
+    const headerBottomThreeY = (visibleH / 2) - (155 * unitsPerPx);
+    const cardTopTargetThreeY = headerBottomThreeY - (26 * unitsPerPx);
+    const startY = cardTopTargetThreeY - (cardH / 2);
+
     const activeProjects = flagshipProjects;
 
     const timeUniform = { value: 0 };
@@ -1112,10 +1120,10 @@ export default function UnseenWebGLGallery() {
       const colIndex = index % cols;
       const rowIndex = Math.floor(index / cols);
 
-      // Cuberto signature staggered layout: Column 2 starts slightly lower than Column 1
-      const colOffset = !isMobile && colIndex === 1 ? -110 : 0;
+      // Balanced column stagger: Column 2 starts gently lower (~45px) than Column 1
+      const colOffset = !isMobile && colIndex === 1 ? Math.round(-45 * unitsPerPx) : 0;
       const posX = cols === 1 ? 0 : (colIndex === 0 ? -1 : 1) * (cardW / 2 + gapX / 2);
-      const posY = (isMobile ? -rowIndex * rowH - 40 : -rowIndex * rowH - 60) + colOffset;
+      const posY = (isMobile ? -rowIndex * rowH - 40 : startY - rowIndex * rowH) + colOffset;
 
       cardGroup.position.set(posX, posY, 0);
       projectsGroup.add(cardGroup);
@@ -1127,7 +1135,7 @@ export default function UnseenWebGLGallery() {
     const lastRowIndex = Math.floor((activeProjects.length - 1) / cols);
     const maxScroll = isMobile 
       ? lastRowIndex * rowH + 40
-      : lastRowIndex * rowH + 90;
+      : lastRowIndex * rowH - startY - 20;
 
     // Direct frame-level scroll synchronization
     let currentScroll = 0;
@@ -1426,7 +1434,7 @@ export default function UnseenWebGLGallery() {
         {/* Sticky 100vh Viewport Container */}
         <div className="sticky top-0 h-[100dvh] w-full overflow-hidden flex flex-col justify-between bg-white cursor-none">
           {/* Top Header (Clean, solid white header bar, zero dark smudges) */}
-          <div className="relative z-20 w-full pt-20 sm:pt-24 md:pt-[102px] pb-4 sm:pb-5 text-center bg-white border-b border-black/[0.04] pointer-events-none cursor-default">
+          <div className="relative z-20 w-full pt-16 sm:pt-20 md:pt-[82px] pb-3 sm:pb-3.5 text-center bg-white border-b border-black/[0.04] pointer-events-none cursor-default">
             <h2 className="text-[38px] sm:text-[52px] md:text-[64px] lg:text-[76px] font-normal tracking-[-0.035em] text-[#111111] leading-none font-sans pointer-events-auto">
               My projects
             </h2>
