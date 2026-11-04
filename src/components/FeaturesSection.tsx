@@ -267,18 +267,19 @@ export default function FeaturesSection() {
     <section
       ref={sectionRef}
       id="features"
-      className="FeatureSection relative w-full bg-white text-black pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 px-6 sm:px-12 xl:px-20 rounded-t-[32px] sm:rounded-t-[44px] z-20 select-none scroll-mt-12 sm:scroll-mt-16"
+      className="FeatureSection relative w-full bg-white text-black pb-12 sm:pb-16 z-20 select-none"
     >
-      <div className="max-w-[1440px] mx-auto space-y-8 sm:space-y-10">
-        {/* ========================================================= */}
-        {/* TOP HEADER: CENTERED "WHAT I DO" TITLE                    */}
-        {/* ========================================================= */}
-        <div className="pt-2 pb-4 text-center">
-          <h2 className="text-[38px] sm:text-[52px] md:text-[64px] lg:text-[76px] font-normal tracking-[-0.035em] text-[#111111] leading-none font-sans">
-            WHAT I DO
-          </h2>
-        </div>
+      {/* ========================================================= */}
+      {/* TOP HEADER: STICKY AT TOP UNTIL LAST FEATURE SCROLLS PAST */}
+      {/* 100% MATCHED WITH "MY PROJECTS" DESIGN & SETUP             */}
+      {/* ========================================================= */}
+      <div className="sticky top-0 z-30 w-full pt-16 sm:pt-20 md:pt-[82px] pb-3 sm:pb-3.5 text-center bg-white border-b border-black/[0.04] shadow-[0_4px_20px_rgba(0,0,0,0.02)] cursor-default">
+        <h2 className="text-[38px] sm:text-[52px] md:text-[64px] lg:text-[76px] font-normal tracking-[-0.035em] text-[#111111] leading-none font-sans pointer-events-auto">
+          What I do
+        </h2>
+      </div>
 
+      <div className="max-w-[1440px] mx-auto pt-6 sm:pt-8 px-6 sm:px-12 xl:px-20">
         {/* ========================================================= */}
         {/* ITEMS STACK: 100% EXACT CUBERTO ACCORDION SCROLL REVEAL   */}
         {/* ========================================================= */}

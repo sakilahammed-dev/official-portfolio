@@ -67,7 +67,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
       if (el) {
         if ((window as any).lenis) {
           (window as any).lenis.scrollTo(el, {
-            offset: targetId === "home" ? 0 : -30,
+            offset: 0,
             duration: 1.2,
           });
         } else {

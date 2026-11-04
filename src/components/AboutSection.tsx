@@ -6,7 +6,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative w-full bg-white text-[#1C1D20] pt-20 sm:pt-32 pb-20 sm:pb-28 select-none scroll-mt-12 overflow-hidden"
+      className="relative w-full bg-white text-[#1C1D20] pt-12 sm:pt-16 md:pt-[76px] pb-20 sm:pb-28 select-none scroll-mt-12 overflow-hidden"
     >
       <style>{`
         @keyframes dennisDot1 {

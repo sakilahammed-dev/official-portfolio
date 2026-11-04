@@ -65,17 +65,17 @@ export default function FantasyPortalHero() {
               }`}
             >
               <AnimatePresence mode="wait">
-                {/* STEP 1: INITIAL CENTER NAME GLIDING IN FROM RIGHT (0s to 1.1s) */}
+                {/* STEP 1: INITIAL CENTER NAME (Rock-solid centered reveal, zero drifting or shifting) */}
                 {introStep === "name" && (
                   <motion.div
                     key="step-name"
-                    initial={{ opacity: 0, x: 90 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
-                    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.02 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     className="absolute inset-0 flex items-center justify-center text-center px-6"
                   >
-                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-sans uppercase font-medium tracking-[0.42em] select-none drop-shadow-[0_0_35px_rgba(255,255,255,0.7)]">
+                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-sans uppercase font-medium tracking-[0.35em] pl-[0.35em] select-none drop-shadow-[0_0_35px_rgba(255,255,255,0.7)]">
                       SAKIL AHAMMED
                     </h1>
                   </motion.div>
@@ -173,18 +173,13 @@ export default function FantasyPortalHero() {
         {/* Placed deeply behind Sakil in elegant translucent white for 3D depth      */}
         {/* ========================================================================= */}
         <div className="absolute inset-0 z-5 flex items-center justify-center pointer-events-none overflow-hidden px-4 sm:px-8">
-          <motion.div
-            animate={{
-              x: mousePos.x * -15,
-              y: mousePos.y * -10,
-            }}
-            transition={{ type: "spring", stiffness: 100, damping: 25 }}
+          <div
             className="w-full text-center tracking-tight sm:tracking-tighter uppercase font-black select-none whitespace-nowrap -translate-y-6 sm:translate-y-0"
           >
             <span className="block text-[8.5vw] sm:text-[9.8vw] lg:text-[10.5vw] leading-none font-black text-transparent bg-clip-text bg-gradient-to-b from-white/[0.22] via-white/[0.10] to-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.06)]">
               SAKIL AHAMMED
             </span>
-          </motion.div>
+          </div>
         </div>
 
         {/* ========================================================================= */}
@@ -227,11 +222,9 @@ export default function FantasyPortalHero() {
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: introStep === "bloom" || introStep === "done" ? 1 : 0,
-                  x: introStep === "done" ? mousePos.x * 10 : 0,
                 }}
                 transition={{
                   opacity: { duration: 0.8, ease: "easeOut" },
-                  x: { type: "spring", stiffness: 60, damping: 20 },
                 }}
                 src="/images/sakil_cutout.png"
                 alt="Sakil Ahammed • Full-Stack AI & Automation Architect"

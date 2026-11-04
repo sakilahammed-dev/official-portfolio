@@ -264,12 +264,12 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full bg-[#F4F5F8] text-[#1C1D20] pt-20 sm:pt-28 pb-20 px-6 sm:px-12 xl:px-20 border-t border-black/[0.06] select-none overflow-hidden scroll-mt-12"
+      className="relative w-full bg-[#F4F5F8] text-[#1C1D20] pt-12 sm:pt-16 md:pt-[76px] pb-20 px-6 sm:px-12 xl:px-20 border-t border-black/[0.06] select-none overflow-hidden scroll-mt-12"
     >
       {/* Subtle Ambient Light Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-[#FF014F]/5 via-[#FF5E00]/3 to-transparent blur-[160px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto space-y-16 sm:space-y-20">
+      <div className="relative z-10 max-w-6xl mx-auto space-y-10 sm:space-y-12">
         {/* ================================================================= */}
         {/* 1. SECTION TITLE (Exact InBio Centered Heading - Light Edition)     */}
         {/* ================================================================= */}
