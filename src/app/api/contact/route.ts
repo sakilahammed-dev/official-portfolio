@@ -45,7 +45,7 @@ function generateNotificationHtml(data: {
     <!-- Top Header Banner -->
     <div style="background: linear-gradient(135deg, #2563eb, #7c3aed); padding: 32px 28px; text-align: left;">
       <span style="display: inline-block; padding: 4px 12px; background: rgba(255,255,255,0.2); border-radius: 9999px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ffffff; margin-bottom: 12px;">
-        🚀 Portfolio Lead
+        Portfolio Lead
       </span>
       <h1 style="margin: 0; font-size: 22px; font-weight: 800; color: #ffffff; line-height: 1.3;">
         New Message Received
@@ -97,11 +97,11 @@ function generateNotificationHtml(data: {
       <!-- Quick Action Buttons -->
       <div style="padding-top: 12px; text-align: center;">
         <a href="mailto:${data.email}?subject=Re: ${encodeURIComponent(data.subject)}" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 24px; border-radius: 9999px; font-size: 13px; font-weight: 700; text-decoration: none; margin-right: 10px; margin-bottom: 8px;">
-          ✉️ Reply to ${data.name}
+          Reply to ${data.name}
         </a>
         ${data.phone ? `
         <a href="https://wa.me/${data.phone.replace(/[^0-9]/g, "")}" style="display: inline-block; background-color: #059669; color: #ffffff; padding: 12px 24px; border-radius: 9999px; font-size: 13px; font-weight: 700; text-decoration: none; margin-bottom: 8px;">
-          💬 WhatsApp Chat
+          WhatsApp Chat
         </a>
         ` : ""}
       </div>
@@ -194,7 +194,7 @@ ${data.message}
       from: `"${data.name} (via Portfolio)" <${gmailUser}>`,
       to: RECIPIENT_EMAIL,
       replyTo: data.email,
-      subject: `🚀 [Portfolio Inquiry] ${data.subject} — from ${data.name}`,
+      subject: `[Portfolio Inquiry] ${data.subject} — from ${data.name}`,
       text: textContent,
       html: htmlContent,
     });
