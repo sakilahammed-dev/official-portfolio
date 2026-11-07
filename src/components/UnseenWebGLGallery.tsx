@@ -74,7 +74,7 @@ const flagshipProjects: ProjectItem[] = [
     filterType: "website",
     badge: "Official Production System",
     accentColor: "#F97316",
-    liveUrl: "http://localhost:3001",
+    liveUrl: "https://unnoto-khabar.vercel.app",
     githubUrl: "https://github.com/sakilahammed-dev/unnoto-khabar",
     details: {
       tagline: "স্বাস্থ্যসম্মত ও বিশুদ্ধ খাদ্য নিশ্চিতকরণে আধুনিক ফুল-স্ট্যাক ই-কমার্স ইকোসিস্টেম",
