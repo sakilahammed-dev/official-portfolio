@@ -28,6 +28,13 @@ const videoProjects: VideoProject[] = [
     subtitle: "As-Sunnah Foundation • Commercial Motion",
     thumb: "/images/projects/as_sunnah_promo_thumb.png",
   },
+  {
+    id: "n8n-automation",
+    localSrc: "/videos/n8n_automation.mp4",
+    title: "n8n Business Workflow Automation",
+    subtitle: "Enterprise Autonomous Workflows • AI & API Integration",
+    thumb: "/images/projects/n8n_automation_thumb.png",
+  },
 ];
 
 export default function GalleryPage() {
