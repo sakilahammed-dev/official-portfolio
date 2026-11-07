@@ -28,13 +28,6 @@ const videoProjects: VideoProject[] = [
     subtitle: "As-Sunnah Foundation • Commercial Motion",
     thumb: "/images/projects/as_sunnah_promo_thumb.png",
   },
-  {
-    id: "story-master",
-    driveId: "1Bn0t62Y6nxahtd3NPHPBRQ7589u8_N6O",
-    title: "Community Story (Master Music Cut)",
-    subtitle: "As-Sunnah Foundation • Cinematic Master",
-    thumb: "/images/projects/as_sunnah_music_thumb.png",
-  },
 ];
 
 export default function GalleryPage() {
